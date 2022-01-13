@@ -1,0 +1,15 @@
+.movie-info__movie-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 15px 15px;
+  height: 484px;
+}
+
+.movie-info__movie-title {
+  font-size: 35px;
+}
+
+.movie-info__movie-description {
+  font-size: 17px;
+}

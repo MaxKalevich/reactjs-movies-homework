@@ -1,0 +1,39 @@
+.actor-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin: 15px;
+}
+
+.actor-profile__header {
+  margin-top: 80px;
+}
+
+.actor-photos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  grid-gap: 1vw;
+}
+
+.actor-info__biography-header {
+  font-weight: 600;
+  font-size: 19px;
+  margin-top: 10px;
+}
+
+.actor-info__birthday,
+.actor-info__place-of-birthday {
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.actor-info__actor-name {
+  font-size: 52px;
+}
+
+.header-actor-birthday,
+.header-actor-place {
+  font-size: 19px;
+  font-weight: 600;
+}
