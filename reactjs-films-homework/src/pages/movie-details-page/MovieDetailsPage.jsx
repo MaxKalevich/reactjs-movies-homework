@@ -6,7 +6,7 @@ import MovieInfo from "../../components/movie-info/MovieInfo";
 
 import "./movie-details-page_style.scss";
 
-const MovieDetailsPage = () => {
+const MovieDetailsPage = ({ setPage }) => {
   return (
     <div className="movie-details-page__content-container">
       <div className="movie-banner-info-container">
@@ -26,7 +26,7 @@ const MovieDetailsPage = () => {
       <div className="actor-images-group">
         <h2 className="actor-top-cast-header">Top Billed Cast</h2>
         <div className="actor-card-container">
-          <ActorCard />
+          <ActorCard setPage={setPage} />
           <ActorCard />
           <ActorCard />
           <ActorCard />

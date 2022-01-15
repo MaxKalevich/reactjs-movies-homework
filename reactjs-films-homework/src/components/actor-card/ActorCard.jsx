@@ -1,8 +1,8 @@
 import "./actor-card-style.scss";
 
-const ActorCard = ({ actorName, actorRole, actorPhoto }) => {
+const ActorCard = ({ actorName, actorRole, actorPhoto, setPage }) => {
   return (
-    <div className="actor-card">
+    <div className="actor-card" onClick={() => setPage("actorDetails")}>
       <img className="actor-tab" src="./actor-picture-mock.jpg" alt="actor" />
       <div className="actor-inf">
         <h2 className="actor-name">Daniel Radcliff</h2>

@@ -6,9 +6,10 @@ const MovieCard = ({
   description,
   genre,
   movieImage,
+  setPage,
 }) => {
   return (
-    <div className="card">
+    <div className="card" onClick={() => setPage("movieDetails")}>
       <span className="estimation-movie">{estimation}</span>
       <img
         className="movie-image"

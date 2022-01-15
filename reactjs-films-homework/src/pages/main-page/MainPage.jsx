@@ -3,7 +3,7 @@ import SwitchPanel from "../../components/switch-panel/ControlPanel";
 
 import "./main-page_style.scss";
 
-const MainPage = () => {
+const MainPage = ({ setPage }) => {
   return (
     <section className="main-page">
       <SwitchPanel />
@@ -13,6 +13,7 @@ const MainPage = () => {
           genre="Drama"
           movieTitle="Home Alone 3"
           estimation="9.97"
+          setPage={setPage}
         />
         <MovieCard />
         <MovieCard />
