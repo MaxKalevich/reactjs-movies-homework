@@ -4,7 +4,7 @@ import App from "../App";
 describe("Checking App component", () => {
   it("renders App component", () => {
     render(<App />);
-    screen.debug();
+    // screen.debug();
   });
   it("snapshot App component", () => {
     const { asFragment } = render(<App />);

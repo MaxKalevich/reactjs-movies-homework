@@ -1,11 +1,11 @@
-import "./movie-banner-style.scss";
+import styles from "./movie-banner-style.module.scss";
 
 const MovieBanner = ({ estimation, image }) => {
   return (
-    <div className="movie-banner">
-      <span className="estimation-movie-banner">{estimation}</span>
+    <div className={styles.movieBanner}>
+      <span className={styles.estimation}>{estimation}</span>
       <img
-        className="movie-banner__movie-img"
+        className={styles.movieImage}
         src={image ? image : "movie-picture-mock.jpg"}
         alt="movie-banner"
       />

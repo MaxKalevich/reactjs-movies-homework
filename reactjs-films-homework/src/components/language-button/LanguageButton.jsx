@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import "./language-btn-style.scss";
+import styles from "./language-btn-style.module.scss";
 
 const LanguageButton = () => {
   const [lang, setLang] = useState("en");
   return (
     <select
       defaultValue={lang}
-      className="lang-btn"
+      className={styles.langBtn}
       size="1"
       id="select-language"
     >

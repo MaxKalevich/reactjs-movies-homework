@@ -1,14 +1,14 @@
 import SearchField from "../search-field/SearchField";
 import LanguageButton from "../language-button/LanguageButton";
 
-import "./header-style.scss";
+import styles from "./header-style.module.scss";
 
 const Header = (props) => {
   return (
-    <header className="header">
-      <div className="header-wrapper">
-        <h1 className="heading">Title</h1>
-        <div className="header-group">
+    <header className={styles.header}>
+      <div className={styles.wrapper}>
+        <h1 className={styles.heading}>Title</h1>
+        <div className={styles.group}>
           <SearchField />
           <LanguageButton />
         </div>

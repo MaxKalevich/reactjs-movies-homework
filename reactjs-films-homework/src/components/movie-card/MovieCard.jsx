@@ -1,25 +1,17 @@
-import "./movie-card-style.scss";
+import styles from "./movie-card-style.module.scss";
 
-const MovieCard = ({
-  estimation,
-  movieTitle,
-  description,
-  genre,
-  movieImage,
-  setPage,
-}) => {
+const MovieCard = ({ movieTitle, estimation, genre, movieImage, setPage }) => {
   return (
-    <div className="card" onClick={() => setPage("movieDetails")}>
-      <span className="estimation-movie">{estimation}</span>
+    <div className={styles.card} onClick={() => setPage("movieDetails")}>
+      <span className={styles.estimationMovie}>{estimation}</span>
       <img
-        className="movie-image"
+        className={styles.movieImage}
         src={movieImage ? movieImage : "movie-picture-mock.jpg"}
-        alt=""
+        alt="movie banner"
       />
-      <div className="movie-info">
-        <h2 className="movie-title-card">{movieTitle}</h2>
-        <p className="movie-description-main-page">{description}</p>
-        <span className="movie-genre">{genre}</span>
+      <div className={styles.movieInfo}>
+        <h2 className={styles.titleCard}>{movieTitle}</h2>
+        <span>{genre}</span>
       </div>
     </div>
   );

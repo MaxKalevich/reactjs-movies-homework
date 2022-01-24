@@ -1,0 +1,15 @@
+.movieInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 15px 15px;
+  height: 484px;
+
+  .movieTitle {
+    font-size: 35px;
+  }
+
+  .movieDescription {
+    font-size: 17px;
+  }
+}

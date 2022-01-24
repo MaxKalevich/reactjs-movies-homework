@@ -1,57 +1,47 @@
 import ActorCard from "../../components/actor-card/ActorCard";
 import ImageCard from "../../components/image-card/ImageCard";
 import MovieCard from "../../components/movie-card/MovieCard";
-import MovieBanner from "../../components/movie-banner/MovieBanner";
 import MovieInfo from "../../components/movie-info/MovieInfo";
 
-import "./movie-details-page_style.scss";
+import styles from "./movie-details-page_style.module.scss";
 
-const MovieDetailsPage = ({ setPage }) => {
+const MovieDetailsPage = ({
+  setPage,
+  movieDetailsPageMockData,
+  moviesMockData,
+}) => {
   return (
-    <div className="movie-details-page__content-container">
-      <div className="movie-banner-info-container">
-        <MovieBanner estimation="4.2" />
-        <MovieInfo
-          description="Отвязный и вместе с тем душевный кинокомикс Джеймса Ганна
-        теперь в подпискезный и вместе с тем душевный кинокомикс Джеймса Ганзный
-        и вместе с тем душевный кинокомикс Джеймса Ганзный и вместе с тем
-        душевный кинокомикс Джеймса Ганзный и вместе с тем душевный кинокомикс
-        Джеймса Ган."
-          movieTitle="Spider Man"
-          releaseDate="10.10.2022"
-          revenue="$10000000000"
-          duration="2:12"
-        />
+    <div className={styles.contentContainer}>
+      <div className={styles.movieBannerInfoContainer}>
+        <MovieInfo movieDetailsPageMockData={movieDetailsPageMockData} />
       </div>
-      <div className="actor-images-group">
-        <h2 className="actor-top-cast-header">Top Billed Cast</h2>
-        <div className="actor-card-container">
-          <ActorCard setPage={setPage} />
-          <ActorCard />
-          <ActorCard />
-          <ActorCard />
-          <ActorCard />
-          <ActorCard />
+      <div className={styles.actorImagesGroup}>
+        <h2 className={styles.heading}>Top Billed Cast</h2>
+        <div className={styles.cardContainer}>
+          <ActorCard
+            setPage={setPage}
+            actors={movieDetailsPageMockData[0].actors}
+          />
         </div>
-        <h2 className="movie-details-image-header">Images</h2>
-        <div className="images">
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
-          <ImageCard />
+        <h2 className={styles.imagesHeading}>Images</h2>
+        <div className={styles.images}>
+          <ImageCard images={movieDetailsPageMockData[0].images} />
         </div>
       </div>
-      <h2 className="recommendations-header">Recommendations</h2>
-      <div className="recommendations">
-        <MovieCard estimation="2.4" genre="Horror" movieTitle="Transporter" />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+      <h2 className={styles.recommendationsHeader}>Recommendations</h2>
+      <div className={styles.recommendations}>
+        {moviesMockData.map((movie) => {
+          return (
+            <MovieCard
+              movieTitle={movie.title}
+              movieImage={movie.movieImage}
+              estimation={movie.estimation}
+              genre={movie.genre}
+              setPage={setPage}
+              key={movie.title}
+            />
+          );
+        })}
       </div>
     </div>
   );

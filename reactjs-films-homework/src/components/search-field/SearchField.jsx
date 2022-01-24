@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "./search-field_style.scss";
+import styles from "./search-field_style.module.scss";
 
 const SearchField = () => {
   const [searchData, setSearchData] = useState("");
@@ -12,16 +12,20 @@ const SearchField = () => {
   };
 
   return (
-    <div className="search">
+    <div className={styles.search}>
       <input
-        className="search-bar"
+        className={styles.searchBar}
         type="text"
         id="search"
         value={searchData}
         onChange={(e) => onSubmitSearchData(e.target.value)}
         placeholder="Movies, person, movie theaters"
       />
-      <img className="search-icon" src="search-zoom.svg" alt="search icon" />
+      <img
+        className={styles.searchIcon}
+        src="search-zoom.svg"
+        alt="search icon"
+      />
     </div>
   );
 };

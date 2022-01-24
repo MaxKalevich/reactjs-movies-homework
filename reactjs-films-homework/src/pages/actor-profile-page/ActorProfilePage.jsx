@@ -1,45 +1,34 @@
-import ActorPhoto from "../../components/actor-photo/ActorPhoto";
 import ActorInfo from "../../components/actor-info/ActorInfo";
 import MovieCard from "../../components/movie-card/MovieCard";
 
-import "./actor-profile-page_style.scss";
+import styles from "./actor-profile-page_style.module.scss";
 
-const ActorProfilePage = () => {
+const ActorProfilePage = ({
+  actorProfilePageMockData,
+  setPage,
+  actorProfilePageMainActorMockData,
+}) => {
   return (
-    <div className="actor-profile">
-      <div className="actor-details-group">
-        <ActorPhoto actorPhoto="" />
+    <div className={styles.contentContainer}>
+      <div className={styles.detailsGroup}>
         <ActorInfo
-          birthday="20.05.1994"
-          biography="Отвязный и вместе с тем душевный кинокомикс Джеймса Ганна
-        теперь в подпискезный и вместе с тем душевный кинокомикс Джеймса Ганзный
-        и вместе с тем душевный кинокомикс Джеймса Га и вместе с тем душевный кинокомикс Джеймса Ганзный
-        и вместе с тем душевный кинокомикс Джеймса Ганзный и вместе с тем
-        душевный кинокомикс Джеймса Ганзный и вместе с нзный и вместе с тем
-        душевный кинокомикс Джеймса Ганзный и вместе с тем душевный кинокомикс
-        Джеймса Ган."
-          actorName="Johny Depp"
-          placeOfBirth="New York USA"
-          revenue="Revenue: $10000000000"
-          duration="Duration: 2:12"
+          actorProfilePageMainActorMockData={actorProfilePageMainActorMockData}
         />
       </div>
-      <div className="actor-profile__known-by">
-        <h2 className="heading-known-by">Known By</h2>
-        <div className="actor-profile__known-by-container">
-          <MovieCard estimation="2.4" genre="Horror" movieTitle="Transporter" />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
+      <div className={styles.knownBy}>
+        <h2 className={styles.heading}>Known By</h2>
+        <div className={styles.knownByContainer}>
+          {actorProfilePageMockData.map((movie) => {
+            return (
+              <MovieCard
+                movieTitle={movie.title}
+                movieImage={movie.movieImage}
+                estimation={movie.estimation}
+                genre={movie.genre}
+                setPage={setPage}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

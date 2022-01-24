@@ -1,24 +1,32 @@
-import "./movie-info-style.scss";
+import styles from "./movie-info-style.module.scss";
+import MovieBanner from "../movie-banner/MovieBanner";
 
-const MovieInfo = ({
-  movieTitle,
-  description,
-  releaseDate,
-  revenue,
-  duration,
-}) => {
+const MovieInfo = ({ movieDetailsPageMockData }) => {
   return (
-    <div className="movie-info__movie-information">
-      <h1 className="movie-info__movie-title">{movieTitle}</h1>
-      <h3>Description</h3>
-      <p className="movie-info__movie-description">{description}</p>
-      <h3>Release Date</h3>
-      <p className="movie-info__release-date">{releaseDate}</p>
-      <h3>Revenue</h3>
-      <p className="movie-info__release-revenue">{revenue}</p>
-      <h3>Duration</h3>
-      <p className="movie-info__release-duration">{duration}</p>
-    </div>
+    <>
+      {movieDetailsPageMockData.map((movie) => {
+        return (
+          <>
+            <MovieBanner
+              estimation={movie.estimation}
+              image={movie.movieImage}
+              key={movie.movieImage}
+            />
+            <div className={styles.movieInformation} key={movie.movieImage}>
+              <h1 className={styles.movieTitle}>{movie.movieTitle}</h1>
+              <h3>Description</h3>
+              <p className={styles.movieDescription}>{movie.description}</p>
+              <h3>Release Date</h3>
+              <p className={styles.releaseDate}>{movie.releaseDate}</p>
+              <h3>Revenue</h3>
+              <p className={styles.revenue}>{movie.revenue}</p>
+              <h3>Duration</h3>
+              <p className={styles.duration}>{movie.duration}</p>
+            </div>
+          </>
+        );
+      })}
+    </>
   );
 };
 

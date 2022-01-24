@@ -1,4 +1,3 @@
-import MainPage from "./pages/main-page/MainPage";
 import MovieDetailsPage from "./pages/movie-details-page/MovieDetailsPage";
 import ActorProfilePage from "./pages/actor-profile-page/ActorProfilePage";
 import Header from "./components/header/Header";
@@ -7,23 +6,26 @@ import { useState } from "react";
 
 import { ErrorBoundary } from "./components/error-fallback/ErrorFallback";
 
-import "./app-style.scss";
+import styles from "./app-styles.module.scss";
+import MainPageContainer from "./pages/main-page/MainPageContainer";
+import MovieDetailsPageContainer from "./pages/movie-details-page/MovieDetailsPageContainer";
+import ActorProfilePageContainer from "./pages/actor-profile-page/ActorProfilePageContainer";
 
 const App = () => {
   const [page, setPage] = useState();
   let content;
   if (page === "movieDetails") {
-    content = <MovieDetailsPage setPage={setPage} />;
+    content = <MovieDetailsPageContainer setPage={setPage} />;
   } else if (page === "actorDetails") {
-    content = <ActorProfilePage setPage={setPage} />;
+    content = <ActorProfilePageContainer setPage={setPage} />;
   } else {
-    content = <MainPage setPage={setPage} />;
+    content = <MainPageContainer setPage={setPage} />;
   }
   return (
     <>
       <ErrorBoundary>
         <Header />
-        <div className="app-wrapper">
+        <div className={styles.appWrapper}>
           {content}
           {/*<MainPage />*/}
           {/*<MovieDetailsPage />*/}

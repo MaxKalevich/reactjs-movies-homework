@@ -1,0 +1,24 @@
+.movieBanner {
+  position: relative;
+}
+
+.estimation {
+  position: absolute;
+  display: block;
+  width: 14%;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  align-items: center;
+  background-color: limegreen;
+  border-radius: 5px;
+  top: 24px;
+  left: 8px;
+  color: white;
+}
+
+.movieImage {
+  width: 250px;
+  margin: 15px;
+  border-radius: 10px;
+}

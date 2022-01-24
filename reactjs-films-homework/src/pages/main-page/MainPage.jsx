@@ -1,29 +1,25 @@
 import MovieCard from "../../components/movie-card/MovieCard";
-import SwitchPanel from "../../components/switch-panel/ControlPanel";
+import SwitchPanel from "../../components/switch-panel/SwitchPanel";
 
-import "./main-page_style.scss";
+import styles from "./main-page_style.module.scss";
 
-const MainPage = ({ setPage }) => {
+const MainPage = ({ setPage, mainPageMockData }) => {
   return (
-    <section className="main-page">
+    <section className={styles.mainPage}>
       <SwitchPanel />
-      <main className="main-page__card-container">
-        <MovieCard
-          movieImage=""
-          genre="Drama"
-          movieTitle="Home Alone 3"
-          estimation="9.97"
-          setPage={setPage}
-        />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
+      <main className={styles.cardContainer}>
+        {mainPageMockData.map((movie) => {
+          return (
+            <MovieCard
+              movieTitle={movie.title}
+              movieImage={movie.movieImage}
+              estimation={movie.estimation}
+              genre={movie.genre}
+              setPage={setPage}
+              key={movie.title}
+            />
+          );
+        })}
       </main>
     </section>
   );

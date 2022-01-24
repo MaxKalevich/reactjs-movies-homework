@@ -1,14 +1,27 @@
-import "./actor-card-style.scss";
+import styles from "./actor-card-style.module.scss";
 
-const ActorCard = ({ actorName, actorRole, actorPhoto, setPage }) => {
+const ActorCard = ({ actors, setPage }) => {
   return (
-    <div className="actor-card" onClick={() => setPage("actorDetails")}>
-      <img className="actor-tab" src="./actor-picture-mock.jpg" alt="actor" />
-      <div className="actor-inf">
-        <h2 className="actor-name">Daniel Radcliff</h2>
-        <p className="actor-role">Main person</p>
-      </div>
-    </div>
+    <>
+      {actors.map((actor) => {
+        return (
+          <div
+            className={styles.actorCard}
+            onClick={() => setPage("actorDetails")}
+          >
+            <img
+              className={styles.actorTab}
+              src={actor.photo ? actor.photo : "./actor-picture-mock.jpg"}
+              alt={actor.photo ? actor.photo : "actor"}
+            />
+            <div className={styles.actorInfo}>
+              <h2 className={styles.actorName}>{actor.name}</h2>
+              <p className={styles.actorRole}>{actor.role}</p>
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 };
 
