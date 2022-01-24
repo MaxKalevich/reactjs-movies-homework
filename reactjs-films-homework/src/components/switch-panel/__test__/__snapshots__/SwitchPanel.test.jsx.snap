@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checking LanguageButton component Contains displayText in LanguageButton component 1`] = `
+<DocumentFragment>
+  <div
+    class="switchWrapper"
+  >
+    <ul
+      class="itemList"
+    >
+      <li>
+        Popular
+      </li>
+      <li>
+        Top Rated
+      </li>
+      <li>
+        Upcoming
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

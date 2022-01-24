@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checking ActorInfo component snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="contentContainer"
+  >
+    <h2
+      class="actorName"
+    />
+    <p>
+      <span
+        class="birthday"
+      >
+        Birthday
+      </span>
+       
+    </p>
+    <p
+      class="birthdayPlace"
+    >
+      <span
+        class="placeOfBirth"
+      >
+        Place Of Birth
+      </span>
+    </p>
+    <p
+      class="biography"
+    >
+      <span
+        class="biographyHeader"
+      >
+        Biography
+      </span>
+    </p>
+    <div>
+      <h2
+        class="headerPhotos"
+      >
+        Photos
+      </h2>
+      <div
+        class="photosContainer"
+      >
+        <img
+          alt="actor"
+          class="actorPhotoTab"
+          src="./actor-picture-mock.jpg"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
