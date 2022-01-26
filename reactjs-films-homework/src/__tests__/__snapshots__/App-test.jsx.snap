@@ -1,0 +1,448 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checking App component snapshot App component 1`] = `
+<DocumentFragment>
+  <header
+    class="header"
+  >
+    <div
+      class="wrapper"
+    >
+      <h1
+        class="heading"
+      >
+        Movie Searcher
+      </h1>
+      <div
+        class="group"
+      >
+        <div
+          class="search"
+        >
+          <input
+            class="searchBar"
+            id="search"
+            placeholder="Movies, person, movie theaters"
+            type="text"
+            value=""
+          />
+          <img
+            alt="search icon"
+            class="searchIcon"
+            src="search-zoom.svg"
+          />
+        </div>
+        <select
+          class="langBtn"
+          id="select-language"
+          size="1"
+        >
+          <option
+            selected=""
+            value="en"
+          >
+            En
+          </option>
+          <option
+            value="ru"
+          >
+            Ru
+          </option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <div
+    class="appWrapper"
+  >
+    <section
+      class="mainPage"
+    >
+      <div
+        class="switchWrapper"
+      >
+        <ul
+          class="itemList"
+        >
+          <li>
+            Popular
+          </li>
+          <li>
+            Top Rated
+          </li>
+          <li>
+            Upcoming
+          </li>
+        </ul>
+      </div>
+      <main
+        class="cardContainer"
+      >
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.8
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="HomeAlone.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Home Alone 2: Lost in New York
+            </h2>
+            <span>
+              Family movie
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.4
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="Transporter3.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Transporter 3
+            </h2>
+            <span>
+              Action movie
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            10
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="HarryPotter.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Harry Potter and the philosopher's stone
+            </h2>
+            <span>
+              Mystical genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.6
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="Leon.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Léon: The Professional
+            </h2>
+            <span>
+              Dramatic genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.1
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="Zathura.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Фильм Затура (Zathura: A Space Adventure)
+            </h2>
+            <span>
+              Fantastic genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.5
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="Fast.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Fast & Furious 5
+            </h2>
+            <span>
+              Racing genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.3
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="33.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Lemony Snicket: 33 misfortunes
+            </h2>
+            <span>
+              Adventure genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.2
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="TheBlairWitch.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              The Blair Witch: Coursework from the Other World
+            </h2>
+            <span>
+              Horror genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.5
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="Treasure.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              The Treasure of the Nation
+            </h2>
+            <span>
+              Adventure genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.4
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="GreenBook.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Green Book
+            </h2>
+            <span>
+              Adventure genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.3
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="SW.jpeg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              Star Wars: The Rise of Skywalker
+            </h2>
+            <span>
+              Adventure genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          >
+            9.4
+          </span>
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="LOTR.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              The Lord of the Rings: The Fellowship of the Ring
+            </h2>
+            <span>
+              Adventure genre
+            </span>
+          </div>
+        </div>
+        <div
+          class="card"
+        >
+          <span
+            class="estimationMovie"
+          />
+          <img
+            alt="movie banner"
+            class="movieImage"
+            src="movie-picture-mock.jpg"
+          />
+          <div
+            class="movieInfo"
+          >
+            <h2
+              class="titleCard"
+            >
+              There is no movie
+            </h2>
+            <span />
+          </div>
+        </div>
+      </main>
+      <div
+        class="pages"
+      >
+        <span
+          class="currentPage"
+        >
+          1
+        </span>
+        <span
+          class="page"
+        >
+          2
+        </span>
+        <span
+          class="page"
+        >
+          3
+        </span>
+        <span
+          class="page"
+        >
+          4
+        </span>
+        <span
+          class="page"
+        >
+          5
+        </span>
+      </div>
+    </section>
+  </div>
+</DocumentFragment>
+`;

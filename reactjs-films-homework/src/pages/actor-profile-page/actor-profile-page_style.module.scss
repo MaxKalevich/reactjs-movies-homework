@@ -1,0 +1,26 @@
+@import "src/variables";
+
+.contentContainer {
+  background-color: $background-white-color;
+
+  .detailsGroup {
+    display: flex;
+    background-color: $background-white-color;
+  }
+
+  .knownBy {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+
+    .knownByContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      grid-gap: 1vw;
+    }
+
+    .heading {
+      padding: 15px 45px;
+    }
+  }
+}

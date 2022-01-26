@@ -1,0 +1,39 @@
+.card {
+  margin: 5px 15px;
+  cursor: pointer;
+  position: relative;
+  max-height: 370px;
+
+  .movieImage {
+    width: 150px;
+    height: 225px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  .estimationMovie {
+    position: absolute;
+    display: block;
+    width: 20%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    align-items: center;
+    background-color: limegreen;
+    border-radius: 5px;
+    top: 10px;
+    left: -3px;
+    color: white;
+  }
+
+  .movieInfo {
+    padding: 7px 10px 12px 10px;
+    text-align: center;
+    width: 150px;
+    overflow: hidden;
+
+    .titleCard {
+      font-size: 1rem;
+    }
+  }
+}
