@@ -1,13 +1,15 @@
-.actorTab {
-  width: 175px;
-  margin: 10px;
-}
+.container {
+  .actorInfo {
+    padding-left: 10px;
+    text-align: center;
 
-.actorName {
-  font-size: 16px;
-}
+    .name {
+      font-size: 16px;
+    }
+  }
 
-.actorInfo {
-  padding-left: 10px;
-  text-align: center;
+  .actorTab {
+    width: 175px;
+    margin: 10px;
+  }
 }

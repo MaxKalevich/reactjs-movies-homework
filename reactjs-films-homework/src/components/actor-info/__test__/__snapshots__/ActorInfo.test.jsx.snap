@@ -2,11 +2,16 @@
 
 exports[`Checking ActorInfo component snapshot 1`] = `
 <DocumentFragment>
+  <img
+    alt="actor"
+    class="banner"
+    src="movie-picture-mock.jpg"
+  />
   <div
     class="contentContainer"
   >
     <h2
-      class="actorName"
+      class="name"
     />
     <p>
       <span
@@ -45,8 +50,8 @@ exports[`Checking ActorInfo component snapshot 1`] = `
       >
         <img
           alt="actor"
-          class="actorPhotoTab"
-          src="./actor-picture-mock.jpg"
+          class="banner"
+          src="movie-picture-mock.jpg"
         />
       </div>
     </div>

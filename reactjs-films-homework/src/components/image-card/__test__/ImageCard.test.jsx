@@ -4,6 +4,8 @@ import ImageCard from "../ImageCard";
 describe("Checking ImageCard component", () => {
   it("contains alt actor and have class", () => {
     render(<ImageCard />);
-    expect(screen.getByAltText(/image/i)).toHaveClass("imageBanner");
+    expect(screen.getByAltText(/from the shooting/i)).toHaveClass(
+      "imageBanner"
+    );
   });
 });

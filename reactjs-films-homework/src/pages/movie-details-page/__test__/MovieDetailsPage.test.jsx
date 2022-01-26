@@ -14,21 +14,6 @@ describe("Checking MovieDetailsPage component", () => {
           {
             image: "images/1.jpg",
           },
-          {
-            image: "images/2.jpg",
-          },
-          {
-            image: "images/3.jpg",
-          },
-          {
-            image: "images/4.jpg",
-          },
-          {
-            image: "images/5.jpg",
-          },
-          {
-            image: "images/6.jpg",
-          },
         ],
       },
     ];
@@ -54,21 +39,6 @@ describe("Checking MovieDetailsPage component", () => {
           {
             image: "images/1.jpg",
           },
-          {
-            image: "images/2.jpg",
-          },
-          {
-            image: "images/3.jpg",
-          },
-          {
-            image: "images/4.jpg",
-          },
-          {
-            image: "images/5.jpg",
-          },
-          {
-            image: "images/6.jpg",
-          },
         ],
       },
     ];
@@ -93,21 +63,6 @@ describe("Checking MovieDetailsPage component", () => {
         images: [
           {
             image: "images/1.jpg",
-          },
-          {
-            image: "images/2.jpg",
-          },
-          {
-            image: "images/3.jpg",
-          },
-          {
-            image: "images/4.jpg",
-          },
-          {
-            image: "images/5.jpg",
-          },
-          {
-            image: "images/6.jpg",
           },
         ],
       },

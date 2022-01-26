@@ -1,4 +1,3 @@
-import React from "react";
 import MovieDetailsPage from "./MovieDetailsPage";
 
 const MovieDetailsPageContainer = ({ setPage }) => {

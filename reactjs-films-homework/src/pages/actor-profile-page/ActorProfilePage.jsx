@@ -11,9 +11,19 @@ const ActorProfilePage = ({
   return (
     <div className={styles.contentContainer}>
       <div className={styles.detailsGroup}>
-        <ActorInfo
-          actorProfilePageMainActorMockData={actorProfilePageMainActorMockData}
-        />
+        {actorProfilePageMainActorMockData.map((actor) => {
+          return (
+            <ActorInfo
+              photo={actor.photo}
+              name={actor.name}
+              birthday={actor.birthday}
+              placeOfBirthday={actor.placeOfBirth}
+              biography={actor.biography}
+              photos={actor.photos}
+              key={actor.name}
+            />
+          );
+        })}
       </div>
       <div className={styles.knownBy}>
         <h2 className={styles.heading}>Known By</h2>
@@ -25,6 +35,7 @@ const ActorProfilePage = ({
                 movieImage={movie.movieImage}
                 estimation={movie.estimation}
                 genre={movie.genre}
+                key={movie.title}
                 setPage={setPage}
               />
             );

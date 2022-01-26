@@ -2,6 +2,7 @@ import MovieCard from "../../components/movie-card/MovieCard";
 import SwitchPanel from "../../components/switch-panel/SwitchPanel";
 
 import styles from "./main-page_style.module.scss";
+import PaginationContainer from "../../components/pagination/PaginationContainer";
 
 const MainPage = ({ setPage, mainPageMockData }) => {
   return (
@@ -21,6 +22,7 @@ const MainPage = ({ setPage, mainPageMockData }) => {
           );
         })}
       </main>
+      <PaginationContainer />
     </section>
   );
 };

@@ -1,7 +1,7 @@
 import styles from "./actor-photo-style.module.scss";
 
 const ActorPhoto = ({ actorPhoto, actorPhotoCard = false }) => {
-  if (actorPhotoCard) {
+  if (actorPhotoCard && actorPhoto !== undefined) {
     return (
       <>
         {actorPhoto.map((photo) => {
@@ -10,6 +10,7 @@ const ActorPhoto = ({ actorPhoto, actorPhotoCard = false }) => {
               className={styles.actorPhotoTab}
               src={photo.photo ? photo.photo : "./actor-picture-mock.jpg"}
               alt="actor"
+              key={photo.photo}
             />
           );
         })}

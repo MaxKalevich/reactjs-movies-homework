@@ -11,7 +11,7 @@ exports[`Checking App component snapshot App component 1`] = `
       <h1
         class="heading"
       >
-        Title
+        Movie Searcher
       </h1>
       <div
         class="group"
@@ -413,6 +413,35 @@ exports[`Checking App component snapshot App component 1`] = `
           </div>
         </div>
       </main>
+      <div
+        class="pages"
+      >
+        <span
+          class="currentPage"
+        >
+          1
+        </span>
+        <span
+          class="page"
+        >
+          2
+        </span>
+        <span
+          class="page"
+        >
+          3
+        </span>
+        <span
+          class="page"
+        >
+          4
+        </span>
+        <span
+          class="page"
+        >
+          5
+        </span>
+      </div>
     </section>
   </div>
 </DocumentFragment>

@@ -1,6 +1,5 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import MovieCard from "../MovieCard";
-import MovieBanner from "../../movie-banner/MovieBanner";
 
 describe("Checking MovieCard component", () => {
   render(<MovieCard />);
