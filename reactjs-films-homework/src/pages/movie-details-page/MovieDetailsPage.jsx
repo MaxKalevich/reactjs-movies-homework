@@ -5,11 +5,7 @@ import MovieInfo from "../../components/movie-info/MovieInfo";
 
 import styles from "./movie-details-page_style.module.scss";
 
-const MovieDetailsPage = ({
-  setPage,
-  movieDetailsPageMockData,
-  moviesMockData,
-}) => {
+const MovieDetailsPage = ({ movieDetailsPageMockData, moviesMockData }) => {
   return (
     <div className={styles.contentContainer}>
       <div className={styles.movieBannerInfoContainer}>
@@ -34,7 +30,6 @@ const MovieDetailsPage = ({
           {movieDetailsPageMockData[0].actors.map((actor) => {
             return (
               <ActorCard
-                setPage={setPage}
                 photo={actor.photo}
                 name={actor.name}
                 role={actor.role}
@@ -59,7 +54,6 @@ const MovieDetailsPage = ({
               movieImage={movie.movieImage}
               estimation={movie.estimation}
               genre={movie.genre}
-              setPage={setPage}
               key={movie.title}
             />
           );

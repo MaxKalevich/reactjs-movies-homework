@@ -1,12 +1,31 @@
 import styles from "./switch-panel-style.module.scss";
+import { useDispatch } from "react-redux";
+import {
+  setApiCategory,
+  setCategory,
+} from "../../store/reducers/mainPageSlice";
 
-const SwitchPanel = () => {
+const SwitchPanel = ({ category, categories }) => {
+  const dispatch = useDispatch();
   return (
     <div className={styles.switchWrapper}>
       <ul className={styles.itemList}>
-        <li>Popular</li>
-        <li>Top Rated</li>
-        <li>Upcoming</li>
+        {categories.map((cat) => {
+          return (
+            <li
+              className={
+                cat.name === category ? styles.currentCategory : styles.category
+              }
+              onClick={() => {
+                dispatch(setCategory(cat.name));
+                dispatch(setApiCategory(cat.api_name));
+              }}
+              key={cat.name}
+            >
+              {cat.name}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

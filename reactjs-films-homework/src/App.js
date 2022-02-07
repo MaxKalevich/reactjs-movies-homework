@@ -1,18 +1,19 @@
-import MovieDetailsPage from "./pages/movie-details-page/MovieDetailsPage";
-import ActorProfilePage from "./pages/actor-profile-page/ActorProfilePage";
 import Header from "./components/header/Header";
 
-import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import { ErrorBoundary } from "./components/error-fallback/ErrorFallback";
-
-import styles from "./app-styles.module.scss";
 import MainPageContainer from "./pages/main-page/MainPageContainer";
 import MovieDetailsPageContainer from "./pages/movie-details-page/MovieDetailsPageContainer";
 import ActorProfilePageContainer from "./pages/actor-profile-page/ActorProfilePageContainer";
 
+import { setPage } from "./store/reducers/appSlice";
+
+import styles from "./app-styles.module.scss";
+
 const App = () => {
-  const [page, setPage] = useState();
+  const { page } = useSelector((state) => state.appSlice);
+  const { error } = useSelector((state) => state.mainPageSlice);
   let content;
   if (page === "movieDetails") {
     content = <MovieDetailsPageContainer setPage={setPage} />;
@@ -26,6 +27,7 @@ const App = () => {
       <ErrorBoundary>
         <Header />
         <div className={styles.appWrapper}>
+          {error && <h2>An error occurred...{error}</h2>}
           {content}
           {/*<MainPage />*/}
           {/*<MovieDetailsPage />*/}

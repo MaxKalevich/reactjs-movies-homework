@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import styles from "./search-field_style.module.scss";
 
-const SearchField = () => {
-  const [searchData, setSearchData] = useState("");
-  if (searchData === "error") {
+const SearchField = ({ search, setSearchData }) => {
+  const dispatch = useDispatch();
+  if (search === "error") {
     throw new Error("I crashed!");
   }
   const onSubmitSearchData = (e) => {
-    setSearchData(e);
+    dispatch(setSearchData(e));
   };
 
   return (
@@ -17,7 +17,7 @@ const SearchField = () => {
         className={styles.searchBar}
         type="text"
         id="search"
-        value={searchData}
+        value={search}
         onChange={(e) => onSubmitSearchData(e.target.value)}
         placeholder="Movies, person, movie theaters"
       />

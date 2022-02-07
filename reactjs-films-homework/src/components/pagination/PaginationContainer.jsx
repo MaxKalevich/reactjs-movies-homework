@@ -1,23 +1,14 @@
-import React from "react";
 import Pagination from "./Pagination";
+import { useSelector } from "react-redux";
+import { createPages } from "./createPages";
 
 const PaginationContainer = () => {
-  const state = {
-    currentPage: 1,
-    perPage: 10,
-    totalCount: 0,
-  };
-
-  const pages = [1, 2, 3, 4, 5];
-
-  return (
-    <Pagination
-      pages={pages}
-      currentPage={state.currentPage}
-      perPage={state.perPage}
-      totalCount={state.totalCount}
-    />
+  const { currentPage, totalPagesNumber } = useSelector(
+    (state) => state.mainPageSlice
   );
+  const pages = [];
+  createPages(pages, totalPagesNumber, currentPage);
+  return <Pagination pages={pages} currentPage={currentPage} />;
 };
 
 export default PaginationContainer;

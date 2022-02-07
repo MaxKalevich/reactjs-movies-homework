@@ -1,8 +1,14 @@
 import styles from "./actor-card-style.module.scss";
+import { useDispatch } from "react-redux";
+import { setPage } from "../../store/reducers/appSlice";
 
-const ActorCard = ({ name, photo, role, setPage }) => {
+const ActorCard = ({ name, photo, role }) => {
+  const dispatch = useDispatch();
   return (
-    <div className={styles.container} onClick={() => setPage("actorDetails")}>
+    <div
+      className={styles.container}
+      onClick={() => dispatch(setPage("actorDetails"))}
+    >
       <img
         className={styles.actorTab}
         src={photo ? photo : "./actor-picture-mock.jpg"}
