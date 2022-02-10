@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE_URL, KEY } from "../../../service/Api";
 
 export const fetchMovies = createAsyncThunk(
-  "movies/topRated",
+  "movies/categoryMovie",
   async function (
     { language, api_category, currentPage },
     { rejectWithValue }
@@ -12,7 +12,7 @@ export const fetchMovies = createAsyncThunk(
         `${BASE_URL}movie/${api_category}?api_key=${KEY}&language=${language}&page=${currentPage}&include_adult=false`
       );
       if (!response.ok) {
-        throw new Error("No Data");
+        throw new Error("An error occurred...No Data");
       }
 
       return await response.json();

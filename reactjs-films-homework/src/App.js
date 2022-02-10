@@ -13,7 +13,6 @@ import styles from "./app-styles.module.scss";
 
 const App = () => {
   const { page } = useSelector((state) => state.appSlice);
-  const { error } = useSelector((state) => state.mainPageSlice);
   let content;
   if (page === "movieDetails") {
     content = <MovieDetailsPageContainer setPage={setPage} />;
@@ -27,7 +26,6 @@ const App = () => {
       <ErrorBoundary>
         <Header />
         <div className={styles.appWrapper}>
-          {error && <h2>An error occurred...{error}</h2>}
           {content}
           {/*<MainPage />*/}
           {/*<MovieDetailsPage />*/}

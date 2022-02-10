@@ -9,4 +9,17 @@
     grid-gap: 1vw;
     margin: 0 20px;
   }
+
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1vw;
+    margin: 0 20px;
+  }
+
+  .noResults {
+    display: block;
+    text-align: center;
+    height: 60vh;
+  }
 }

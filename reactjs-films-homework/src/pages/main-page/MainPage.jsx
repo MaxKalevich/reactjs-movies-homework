@@ -1,8 +1,8 @@
 import MovieCard from "../../components/movie-card/MovieCard";
 import PaginationContainer from "../../components/pagination/PaginationContainer";
+import SwitchPanelContainer from "../../components/switch-panel/SwitchPanelContainer";
 
 import styles from "./main-page_style.module.scss";
-import SwitchPanelContainer from "../../components/switch-panel/SwitchPanelContainer";
 
 const MainPage = ({ setPage, movies, searchMovies, search }) => {
   const moviesData =
@@ -39,10 +39,10 @@ const MainPage = ({ setPage, movies, searchMovies, search }) => {
     <section className={styles.mainPage}>
       <SwitchPanelContainer />
       <main className={styles.cardContainer}>
-        {search.length ? searchMoviesData : moviesData}
         {searchMovies !== undefined && searchMovies.length === 0 && (
           <h2>NO RESULTS FOUND</h2>
         )}
+        {search.length ? searchMoviesData : moviesData}
       </main>
       <PaginationContainer />
     </section>
