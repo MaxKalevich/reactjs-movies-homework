@@ -1,17 +1,24 @@
-import styles from "./actor-card-style.module.scss";
-import { useDispatch } from "react-redux";
-import { setPage } from "../../store/reducers/appSlice";
+import { ActorCardSideEffects } from "./actorCardSideEffects";
 
-const ActorCard = ({ name, photo, role }) => {
-  const dispatch = useDispatch();
+import styles from "./actor-card-style.module.scss";
+
+const ActorCard = ({ name, photo, role, id }) => {
+  const { dispatch, funcSetPage, funcSetActorId } = ActorCardSideEffects();
   return (
     <div
       className={styles.container}
-      onClick={() => dispatch(setPage("actorDetails"))}
+      onClick={() => {
+        dispatch(funcSetPage("actorDetails"));
+        dispatch(funcSetActorId(id));
+      }}
     >
       <img
         className={styles.actorTab}
-        src={photo ? photo : "./actor-picture-mock.jpg"}
+        src={
+          photo
+            ? `https://www.themoviedb.org/t/p/w138_and_h175_face${photo}`
+            : "./actor-picture-mock.jpg"
+        }
         alt="actor"
       />
       <div className={styles.actorInfo}>

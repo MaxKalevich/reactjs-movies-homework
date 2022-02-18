@@ -1,13 +1,16 @@
-import styles from "./movie-card-style.module.scss";
-import { useDispatch } from "react-redux";
-import { setPage } from "../../store/reducers/appSlice";
+import { MovieCardSideEffects } from "./movieCardSideEffects";
 
-const MovieCard = ({ movieTitle, estimation, date, movieImage }) => {
-  const dispatch = useDispatch();
+import styles from "./movie-card-style.module.scss";
+
+const MovieCard = ({ movieTitle, estimation, date, movieImage, movieId }) => {
+  const { dispatch, funcSetPage, funcSetPMovieId } = MovieCardSideEffects();
   return (
     <div
       className={styles.card}
-      onClick={() => dispatch(setPage("movieDetails"))}
+      onClick={() => {
+        dispatch(funcSetPage("movieDetails"));
+        dispatch(funcSetPMovieId(movieId));
+      }}
     >
       <span className={styles.estimationMovie}>{estimation}</span>
       <img

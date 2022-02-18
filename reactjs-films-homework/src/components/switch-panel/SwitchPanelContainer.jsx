@@ -1,8 +1,8 @@
 import SwitchPanel from "./SwitchPanel";
-import { useSelector } from "react-redux";
+import { SwitchPanelSideEffect } from "./switchPanelSideEffect";
 
 const SwitchPanelContainer = () => {
-  const { category, categories } = useSelector((state) => state.mainPageSlice);
+  const { category, categories } = SwitchPanelSideEffect();
   return <SwitchPanel category={category} categories={categories} />;
 };
 

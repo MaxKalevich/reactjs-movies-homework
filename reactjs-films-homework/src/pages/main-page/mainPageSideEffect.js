@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import {
   fetchMovies,
   fetchSearchMovies,
-} from "../../store/asyncThunks/mainPage/asunkThunksMainPage";
+} from "../../store/asyncThunks/mainPage/asyncThunksMainPage";
 
 export function SideEffect() {
   const dispatch = useDispatch();
@@ -30,5 +30,6 @@ export function SideEffect() {
     search,
     searchMovies,
     error,
+    dispatch,
   };
 }

@@ -1,14 +1,11 @@
-import { useDispatch } from "react-redux";
+import { SearchFieldSideEffects } from "./searchFieldSideEffects";
 
 import styles from "./search-field_style.module.scss";
 
-const SearchField = ({ search, setSearchData }) => {
-  const dispatch = useDispatch();
-  if (search === "error") {
-    throw new Error("I crashed!");
-  }
+const SearchField = () => {
+  const { search, funcSetSearchData, dispatch } = SearchFieldSideEffects();
   const onSubmitSearchData = (e) => {
-    dispatch(setSearchData(e));
+    dispatch(funcSetSearchData(e));
   };
 
   return (

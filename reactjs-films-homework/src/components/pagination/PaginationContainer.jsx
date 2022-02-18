@@ -1,11 +1,9 @@
 import Pagination from "./Pagination";
-import { useSelector } from "react-redux";
 import { createPages } from "./createPages";
+import { PaginationSideEffect } from "./paginationSideEffect";
 
 const PaginationContainer = () => {
-  const { currentPage, totalPagesNumber } = useSelector(
-    (state) => state.mainPageSlice
-  );
+  const { totalPagesNumber, currentPage } = PaginationSideEffect();
   const pages = [];
   createPages(pages, totalPagesNumber, currentPage);
   return <Pagination pages={pages} currentPage={currentPage} />;

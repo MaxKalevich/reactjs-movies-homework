@@ -5,7 +5,11 @@ const ImageCard = ({ image }) => {
     <div className={styles.imageContainer}>
       <img
         className={styles.imageBanner}
-        src={image ? image : "movie_image-picture-mock.jpg"}
+        src={
+          image
+            ? `https://www.themoviedb.org/t/p/w220_and_h330_face${image}`
+            : "movie_image-picture-mock.jpg"
+        }
         alt="from the shooting"
       />
     </div>

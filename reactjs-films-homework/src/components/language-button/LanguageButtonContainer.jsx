@@ -1,9 +1,9 @@
 import LanguageButton from "./LanguageButton";
 
-import { useSelector } from "react-redux";
+import { LanguageButtonSideEffect } from "./languageButtonSideEffect";
 
 const LanguageButtonContainer = () => {
-  const { language } = useSelector((state) => state.mainPageSlice);
+  const { language } = LanguageButtonSideEffect();
 
   return <LanguageButton language={language} />;
 };

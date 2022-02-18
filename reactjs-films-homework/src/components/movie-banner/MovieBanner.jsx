@@ -6,7 +6,11 @@ const MovieBanner = ({ estimation, image }) => {
       <span className={styles.estimation}>{estimation}</span>
       <img
         className={styles.movieImage}
-        src={image ? image : "movie-picture-mock.jpg"}
+        src={
+          image
+            ? `https://image.tmdb.org/t/p/w220_and_h330_face${image}`
+            : "movie-picture-mock.jpg"
+        }
         alt="movie-banner"
       />
     </div>

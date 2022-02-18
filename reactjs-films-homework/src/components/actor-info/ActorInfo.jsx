@@ -7,8 +7,8 @@ const ActorInfo = ({
   photo,
   birthday,
   placeOfBirthday,
-  photos,
   biography,
+  actorImages,
 }) => {
   return (
     <>
@@ -24,12 +24,14 @@ const ActorInfo = ({
         </p>
         <p className={styles.biography}>
           <span className={styles.biographyHeader}>Biography</span>
-          {biography}
+          {biography
+            ? biography
+            : `Sorry, we don't have any information about ${name}`}
         </p>
         <div>
           <h2 className={styles.headerPhotos}>Photos</h2>
           <div className={styles.photosContainer}>
-            <ActorPhoto actorPhotoCard={true} actorPhoto={photos} />
+            <ActorPhoto actorPhotoCard={true} actorPhoto={actorImages} />
           </div>
         </div>
       </div>

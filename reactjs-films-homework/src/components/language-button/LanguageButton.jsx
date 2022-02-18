@@ -1,10 +1,9 @@
-import { useDispatch } from "react-redux";
-import { setLanguage } from "../../store/reducers/mainPageSlice";
+import { LanguageButtonSideEffect } from "./languageButtonSideEffect";
 
 import styles from "./language-btn-style.module.scss";
 
 const LanguageButton = ({ language }) => {
-  const dispatch = useDispatch();
+  const { dispatch, funcSetLanguage } = LanguageButtonSideEffect();
 
   return (
     <select
@@ -12,7 +11,7 @@ const LanguageButton = ({ language }) => {
       className={styles.langBtn}
       size="1"
       id="select-language"
-      onChange={(e) => dispatch(setLanguage(e.target.value))}
+      onChange={(e) => dispatch(funcSetLanguage(e.target.value))}
     >
       <option value="en">En</option>
       <option value="ru">Ru</option>

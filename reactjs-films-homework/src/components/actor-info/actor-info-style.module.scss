@@ -17,12 +17,12 @@
 }
 
 .headerPhotos {
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .photosContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   grid-gap: 1vw;
 }
 

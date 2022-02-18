@@ -38,6 +38,7 @@ exports[`Checking ActorInfo component snapshot 1`] = `
       >
         Biography
       </span>
+      Sorry, we don't have any information about undefined
     </p>
     <div>
       <h2

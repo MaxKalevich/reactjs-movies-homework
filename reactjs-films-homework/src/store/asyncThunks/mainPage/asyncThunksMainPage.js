@@ -12,7 +12,9 @@ export const fetchMovies = createAsyncThunk(
         `${BASE_URL}movie/${api_category}?api_key=${KEY}&language=${language}&page=${currentPage}&include_adult=false`
       );
       if (!response.ok) {
-        throw new Error("An error occurred...No Data");
+        throw new Error(
+          "Something went wrong... we apologize for the inconvenience caused."
+        );
       }
 
       return await response.json();

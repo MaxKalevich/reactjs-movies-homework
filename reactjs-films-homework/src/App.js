@@ -4,20 +4,20 @@ import { useSelector } from "react-redux";
 
 import { ErrorBoundary } from "./components/error-fallback/ErrorFallback";
 import MainPageContainer from "./pages/main-page/MainPageContainer";
-import MovieDetailsPageContainer from "./pages/movie-details-page/MovieDetailsPageContainer";
-import ActorProfilePageContainer from "./pages/actor-profile-page/ActorProfilePageContainer";
 
 import { setPage } from "./store/reducers/appSlice";
 
 import styles from "./app-styles.module.scss";
+import ActorProfilePage from "./pages/actor-profile-page/ActorProfilePage";
+import MovieDetailsPage from "./pages/movie-details-page/MovieDetailsPage";
 
 const App = () => {
   const { page } = useSelector((state) => state.appSlice);
   let content;
   if (page === "movieDetails") {
-    content = <MovieDetailsPageContainer setPage={setPage} />;
+    content = <MovieDetailsPage />;
   } else if (page === "actorDetails") {
-    content = <ActorProfilePageContainer setPage={setPage} />;
+    content = <ActorProfilePage />;
   } else {
     content = <MainPageContainer setPage={setPage} />;
   }

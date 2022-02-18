@@ -7,17 +7,7 @@ exports[`Checking LanguageButton component Contains displayText in LanguageButto
   >
     <ul
       class="itemList"
-    >
-      <li>
-        Popular
-      </li>
-      <li>
-        Top Rated
-      </li>
-      <li>
-        Upcoming
-      </li>
-    </ul>
+    />
   </div>
 </DocumentFragment>
 `;

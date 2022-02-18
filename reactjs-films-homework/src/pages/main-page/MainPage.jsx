@@ -4,10 +4,10 @@ import SwitchPanelContainer from "../../components/switch-panel/SwitchPanelConta
 
 import styles from "./main-page_style.module.scss";
 
-const MainPage = ({ setPage, movies, searchMovies, search }) => {
+const MainPage = ({ setPage, topMovies, searchMovies, search }) => {
   const moviesData =
-    movies !== undefined &&
-    movies.map((movie) => {
+    topMovies !== undefined &&
+    topMovies.map((movie) => {
       return (
         <MovieCard
           movieTitle={movie.title}
@@ -15,6 +15,7 @@ const MainPage = ({ setPage, movies, searchMovies, search }) => {
           estimation={movie.vote_average}
           date={movie.release_date}
           setPage={setPage}
+          movieId={movie.id}
           key={movie.title}
         />
       );
@@ -39,7 +40,7 @@ const MainPage = ({ setPage, movies, searchMovies, search }) => {
     <section className={styles.mainPage}>
       <SwitchPanelContainer />
       <main className={styles.cardContainer}>
-        {searchMovies !== undefined && searchMovies.length === 0 && (
+        {search.length !== 0 && searchMovies.length === 0 && (
           <h2>NO RESULTS FOUND</h2>
         )}
         {search.length ? searchMoviesData : moviesData}

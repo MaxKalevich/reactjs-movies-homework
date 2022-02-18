@@ -1,9 +1,9 @@
+import { PaginationSideEffect } from "./paginationSideEffect";
+
 import styles from "./pagination-style.module.scss";
-import { setCurrentPage } from "../../store/reducers/mainPageSlice";
-import { useDispatch } from "react-redux";
 
 const Pagination = ({ pages, currentPage }) => {
-  const dispatch = useDispatch();
+  const { dispatch, funcSetCurrentPage } = PaginationSideEffect();
 
   return (
     <div className={styles.pages}>
@@ -11,7 +11,7 @@ const Pagination = ({ pages, currentPage }) => {
         <span
           className={currentPage === page ? styles.currentPage : styles.page}
           key={index}
-          onClick={() => dispatch(setCurrentPage(page))}
+          onClick={() => dispatch(funcSetCurrentPage(page))}
         >
           {page}
         </span>

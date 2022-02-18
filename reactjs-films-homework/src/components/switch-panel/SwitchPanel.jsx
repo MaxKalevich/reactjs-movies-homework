@@ -1,12 +1,10 @@
+import { SwitchPanelSideEffect } from "./switchPanelSideEffect";
+
 import styles from "./switch-panel-style.module.scss";
-import { useDispatch } from "react-redux";
-import {
-  setApiCategory,
-  setCategory,
-} from "../../store/reducers/mainPageSlice";
 
 const SwitchPanel = ({ category, categories }) => {
-  const dispatch = useDispatch();
+  const { dispatch, funcSetApiCategory, funcSetCategory } =
+    SwitchPanelSideEffect();
   return (
     <div className={styles.switchWrapper}>
       <ul className={styles.itemList}>
@@ -17,8 +15,8 @@ const SwitchPanel = ({ category, categories }) => {
                 cat.name === category ? styles.currentCategory : styles.category
               }
               onClick={() => {
-                dispatch(setCategory(cat.name));
-                dispatch(setApiCategory(cat.api_name));
+                dispatch(funcSetCategory(cat.name));
+                dispatch(funcSetApiCategory(cat.api_name));
               }}
               key={cat.name}
             >

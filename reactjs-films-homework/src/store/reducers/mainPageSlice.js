@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   fetchMovies,
   fetchSearchMovies,
-} from "../asyncThunks/mainPage/asunkThunksMainPage";
+} from "../asyncThunks/mainPage/asyncThunksMainPage";
 
 const initialState = {
   topMovies: [],
@@ -23,6 +23,7 @@ const initialState = {
   totalPages: [],
   totalPagesNumber: 5,
   pageSize: 20,
+  movieId: "",
 };
 
 const mainPageSlice = createSlice({
@@ -44,6 +45,9 @@ const mainPageSlice = createSlice({
     setCurrentPage(state, action) {
       state.currentPage = action.payload;
     },
+    setMovieId(state, action) {
+      state.movieId = action.payload;
+    },
   },
   extraReducers: {
     [fetchMovies.pending]: (state) => {
@@ -52,7 +56,6 @@ const mainPageSlice = createSlice({
     },
     [fetchMovies.fulfilled]: (state, action) => {
       state.status = "resolved";
-      state.topMovies = action.payload.results;
       state.topMovies = action.payload.results;
       state.totalPagesNumber = action.payload.total_pages;
       for (let i = 0; i < action.payload.total_pages; i++)
@@ -64,14 +67,14 @@ const mainPageSlice = createSlice({
     },
     [fetchSearchMovies.fulfilled]: (state, action) => {
       state.status = "resolved";
-      state.searchMovies = action.payload;
-    },
-    [fetchSearchMovies.fulfilled]: (state, action) => {
-      state.status = "resolved";
-      state.searchMovies = action.payload;
+      state.searchMovies = action.payload.results;
     },
     [fetchSearchMovies.pending]: (state, action) => {
       state.status = "loading";
+      state.error = action.payload;
+    },
+    [fetchSearchMovies.rejected]: (state, action) => {
+      state.status = "rejected";
       state.error = action.payload;
     },
   },
@@ -83,6 +86,7 @@ export const {
   setCategory,
   setApiCategory,
   setCurrentPage,
+  setMovieId,
 } = mainPageSlice.actions;
 
 export default mainPageSlice.reducer;

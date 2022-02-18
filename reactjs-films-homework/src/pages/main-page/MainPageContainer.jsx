@@ -12,8 +12,8 @@ const MainPageContainer = ({ setPage }) => {
   return (
     <MainPage
       setPage={setPage}
-      movies={topMovies}
-      searchMovies={searchMovies.results}
+      topMovies={topMovies}
+      searchMovies={searchMovies}
       search={search}
     />
   );
