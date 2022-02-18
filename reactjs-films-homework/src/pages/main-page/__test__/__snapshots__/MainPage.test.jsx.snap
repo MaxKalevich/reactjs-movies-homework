@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checking MainPage component Snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="mainPage"
+  >
+    <div
+      class="switchWrapper"
+    >
+      <ul
+        class="itemList"
+      >
+        <li>
+          Popular
+        </li>
+        <li>
+          Top Rated
+        </li>
+        <li>
+          Upcoming
+        </li>
+      </ul>
+    </div>
+    <main
+      class="cardContainer"
+    />
+    <div
+      class="pages"
+    >
+      <span
+        class="currentPage"
+      >
+        1
+      </span>
+      <span
+        class="page"
+      >
+        2
+      </span>
+      <span
+        class="page"
+      >
+        3
+      </span>
+      <span
+        class="page"
+      >
+        4
+      </span>
+      <span
+        class="page"
+      >
+        5
+      </span>
+    </div>
+  </section>
+</DocumentFragment>
+`;

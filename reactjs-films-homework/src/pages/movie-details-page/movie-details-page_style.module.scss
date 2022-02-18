@@ -1,0 +1,50 @@
+@import "src/variables";
+
+.contentContainer {
+  .movieBannerInfoContainer {
+    display: flex;
+    background-color: $background-white-color;
+    padding: 15px 45px;
+  }
+
+  .recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    grid-gap: 1vw;
+    padding: 15px 45px;
+  }
+
+  .actorImagesGroup {
+    margin-left: 290px;
+
+    .cardContainer {
+      display: flex;
+      overflow: hidden;
+      max-height: 263px;
+    }
+
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      grid-gap: 1.5vw;
+    }
+  }
+
+  .recommendationsHeader {
+    padding-left: 52px;
+    margin-top: 20px;
+  }
+}
+
+.imagesHeading,
+.recommendations-header {
+  margin: 0 5px 15px;
+}
+
+.heading {
+  margin: 15px 10px 5px;
+}
+
+div > h3 {
+  font-weight: 600;
+}

@@ -1,0 +1,25 @@
+.switchWrapper {
+  width: 100%;
+
+  .itemList {
+    margin: 0 15px;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    width: 90%;
+    text-transform: uppercase;
+    li {
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.currentCategory {
+  color: red;
+}
+
+.category {
+  color: black;
+}
