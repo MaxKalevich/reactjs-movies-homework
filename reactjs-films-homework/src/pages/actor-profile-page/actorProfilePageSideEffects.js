@@ -5,24 +5,32 @@ import {
   fetchActorImages,
   fetchKnownBy,
 } from "../../store/asyncThunks/actorPage/asyncThunkActorPage";
-import { setPage } from "../../store/reducers/appSlice";
+import { useParams } from "react-router";
 
 export function ActorProfilePageSideEffects() {
   const dispatch = useDispatch();
-  const funcSetPage = setPage;
-  const { currentActorId } = useSelector(
+
+  const { currentActorId, movieId } = useSelector(
     (state) => state.movieDetailsPageSlice
   );
+  const actorIdFromUrl = useParams().actorId;
 
   const { language } = useSelector((state) => state.mainPageSlice);
-  const { actorData, knownBy, actorImages } = useSelector(
+  const { actorData, knownBy, actorImages, status } = useSelector(
     (state) => state.actorPageSlice
   );
 
   useEffect(() => {
-    dispatch(fetchActorData({ language, currentActorId }));
-    dispatch(fetchKnownBy({ language, currentActorId }));
-    dispatch(fetchActorImages({ language, currentActorId }));
-  }, [language, currentActorId, dispatch]);
-  return { actorData, knownBy, actorImages, funcSetPage };
+    dispatch(fetchActorData({ language, actorIdFromUrl }));
+    dispatch(fetchKnownBy({ language, actorIdFromUrl }));
+    dispatch(fetchActorImages({ language, actorIdFromUrl }));
+  }, [language, currentActorId, dispatch, actorIdFromUrl]);
+  return {
+    actorData,
+    knownBy,
+    actorImages,
+    currentActorId,
+    movieId,
+    status,
+  };
 }

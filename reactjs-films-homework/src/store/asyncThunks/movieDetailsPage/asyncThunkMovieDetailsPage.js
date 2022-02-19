@@ -3,10 +3,10 @@ import { BASE_URL, KEY } from "../../../service/Api";
 
 export const fetchMovie = createAsyncThunk(
   "movieDetails/movie",
-  async function ({ language, movieId }, { rejectWithValue }) {
+  async function ({ language, movieIdFromUrl }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}movie/${movieId}?api_key=${KEY}&language=${language}`
+        `${BASE_URL}movie/${movieIdFromUrl}?api_key=${KEY}&language=${language}`
       );
       if (!response.ok) {
         throw new Error("An error occurred...No Data");
@@ -20,10 +20,10 @@ export const fetchMovie = createAsyncThunk(
 
 export const fetchImagesMovie = createAsyncThunk(
   "movieDetails/images",
-  async function ({ language, movieId }, { rejectWithValue }) {
+  async function ({ language, movieIdFromUrl }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}movie/${movieId}/images?api_key=${KEY}&language=${language}`
+        `${BASE_URL}movie/${movieIdFromUrl}/images?api_key=${KEY}&language=${language}`
       );
       if (!response.ok) {
         throw new Error("An error occurred...No Data");
@@ -37,10 +37,10 @@ export const fetchImagesMovie = createAsyncThunk(
 
 export const fetchRecommendationsMovie = createAsyncThunk(
   "movieDetails/recommendationsMovie",
-  async function ({ language, movieId }, { rejectWithValue }) {
+  async function ({ language, movieIdFromUrl }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}movie/${movieId}/recommendations?api_key=${KEY}&language=${language}&page=1`
+        `${BASE_URL}movie/${movieIdFromUrl}/recommendations?api_key=${KEY}&language=${language}&page=1`
       );
       if (!response.ok) {
         throw new Error("An error occurred...No Data");
@@ -54,10 +54,10 @@ export const fetchRecommendationsMovie = createAsyncThunk(
 
 export const fetchMovieCast = createAsyncThunk(
   "movieDetails/movieCast",
-  async function ({ language, movieId }, { rejectWithValue }) {
+  async function ({ language, movieIdFromUrl }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}movie/${movieId}/credits?api_key=${KEY}&language=${language}&page=1`
+        `${BASE_URL}movie/${movieIdFromUrl}/credits?api_key=${KEY}&language=${language}&page=1`
       );
       if (!response.ok) {
         throw new Error("An error occurred...No Data");

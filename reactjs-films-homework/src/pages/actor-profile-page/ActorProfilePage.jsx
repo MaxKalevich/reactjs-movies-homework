@@ -4,11 +4,13 @@ import MovieCard from "../../components/movie-card/MovieCard";
 import { ActorProfilePageSideEffects } from "./actorProfilePageSideEffects";
 
 import styles from "./actor-profile-page_style.module.scss";
+import DownloadSpinner from "../../components/download-spinner/DownloadSpinner";
+import { Link } from "react-router-dom";
 
 const ActorProfilePage = () => {
-  const { actorData, knownBy, actorImages, funcSetPage } =
+  const { actorData, knownBy, actorImages, status } =
     ActorProfilePageSideEffects();
-
+  if (status === "loading") return <DownloadSpinner />;
   return (
     <div className={styles.contentContainer}>
       <div className={styles.detailsGroup}>
@@ -34,14 +36,19 @@ const ActorProfilePage = () => {
           {knownBy !== undefined &&
             knownBy.map((movie) => {
               return (
-                <MovieCard
-                  movieTitle={movie.title}
-                  movieImage={movie.poster_path}
-                  estimation={movie.vote_average}
-                  genre={movie.genre}
-                  key={movie.title}
-                  setPage={funcSetPage}
-                />
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={`/movieDetails/${movie.id}`}
+                  key={movie.id}
+                >
+                  <MovieCard
+                    movieTitle={movie.title}
+                    movieImage={movie.poster_path}
+                    estimation={movie.vote_average}
+                    genre={movie.genre}
+                    key={movie.id}
+                  />
+                </Link>
               );
             })}
         </div>

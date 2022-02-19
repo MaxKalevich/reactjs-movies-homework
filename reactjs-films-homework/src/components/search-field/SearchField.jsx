@@ -20,7 +20,7 @@ const SearchField = () => {
       />
       <img
         className={styles.searchIcon}
-        src="search-zoom.svg"
+        src="/search-zoom.svg"
         alt="search icon"
       />
     </div>

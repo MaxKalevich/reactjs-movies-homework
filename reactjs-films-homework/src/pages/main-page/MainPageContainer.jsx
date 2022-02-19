@@ -4,14 +4,13 @@ import NotFoundComponent from "../../components/not-found-component/NotFoundComp
 
 import { SideEffect } from "./mainPageSideEffect";
 
-const MainPageContainer = ({ setPage }) => {
+const MainPageContainer = () => {
   const funcSideEffect = SideEffect();
   const { status, topMovies, search, searchMovies, error } = funcSideEffect;
   if (status === "loading") return <DownloadSpinner />;
   if (status === "rejected") return <NotFoundComponent message={error} />;
   return (
     <MainPage
-      setPage={setPage}
       topMovies={topMovies}
       searchMovies={searchMovies}
       search={search}

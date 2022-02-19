@@ -2,15 +2,16 @@ import ActorCard from "../../components/actor-card/ActorCard";
 import ImageCard from "../../components/image-card/ImageCard";
 import MovieCard from "../../components/movie-card/MovieCard";
 import MovieInfo from "../../components/movie-info/MovieInfo";
+import DownloadSpinner from "../../components/download-spinner/DownloadSpinner";
 
 import { MovieDetailsPageSideEffects } from "./movieDetailsPageSideEffects";
-
+import { Link } from "react-router-dom";
 import styles from "./movie-details-page_style.module.scss";
 
 const MovieDetailsPage = () => {
-  const { movieData, images, recommendationsMovie, movieCast } =
+  const { movieData, images, recommendationsMovie, movieCast, status } =
     MovieDetailsPageSideEffects();
-
+  if (status === "loading") return <DownloadSpinner />;
   return (
     <div className={styles.contentContainer}>
       {movieData !== undefined &&
@@ -26,6 +27,7 @@ const MovieDetailsPage = () => {
                 color: "white",
                 borderRadius: "0 0 10px 10px",
               }}
+              key={movie.id}
             >
               <MovieInfo
                 image={movie.poster_path}
@@ -47,13 +49,19 @@ const MovieDetailsPage = () => {
           {movieCast !== undefined &&
             movieCast.map((actor) => {
               return (
-                <ActorCard
-                  photo={actor.profile_path}
-                  name={actor.name}
-                  role={actor.character}
-                  key={actor.credit_id}
-                  id={actor.id}
-                />
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={`actor/${actor.id}`}
+                  key={actor.id}
+                >
+                  <ActorCard
+                    photo={actor.profile_path}
+                    name={actor.name}
+                    role={actor.character}
+                    key={actor.id}
+                    id={actor.id}
+                  />
+                </Link>
               );
             })}
         </div>
@@ -70,13 +78,19 @@ const MovieDetailsPage = () => {
         {recommendationsMovie !== undefined &&
           recommendationsMovie.map((movie) => {
             return (
-              <MovieCard
-                movieTitle={movie.title}
-                movieImage={movie.poster_path}
-                estimation={movie.vote_average}
-                genre={movie.release_date}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                to={`/movieDetails/${movie.id}`}
                 key={movie.id}
-              />
+              >
+                <MovieCard
+                  movieTitle={movie.title}
+                  movieImage={movie.poster_path}
+                  estimation={movie.vote_average}
+                  genre={movie.release_date}
+                  key={movie.id}
+                />
+              </Link>
             );
           })}
       </div>

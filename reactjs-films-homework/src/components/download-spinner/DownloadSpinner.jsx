@@ -2,7 +2,7 @@ import styles from "./download-spinner-style.module.scss";
 
 const DownloadSpinner = () => {
   return (
-    <img className={styles.spinner} src="download_spinner.svg" alt="spinner" />
+    <img className={styles.spinner} src="/download_spinner.svg" alt="spinner" />
   );
 };
 

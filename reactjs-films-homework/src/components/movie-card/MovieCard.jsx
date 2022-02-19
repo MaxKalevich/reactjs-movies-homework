@@ -3,12 +3,11 @@ import { MovieCardSideEffects } from "./movieCardSideEffects";
 import styles from "./movie-card-style.module.scss";
 
 const MovieCard = ({ movieTitle, estimation, date, movieImage, movieId }) => {
-  const { dispatch, funcSetPage, funcSetPMovieId } = MovieCardSideEffects();
+  const { dispatch, funcSetPMovieId } = MovieCardSideEffects();
   return (
     <div
       className={styles.card}
       onClick={() => {
-        dispatch(funcSetPage("movieDetails"));
         dispatch(funcSetPMovieId(movieId));
       }}
     >
@@ -18,7 +17,7 @@ const MovieCard = ({ movieTitle, estimation, date, movieImage, movieId }) => {
         src={
           movieImage
             ? `https://image.tmdb.org/t/p/w220_and_h330_face${movieImage}`
-            : "movie-picture-mock.jpg"
+            : "/movie-picture-mock.jpg"
         }
         alt="movie banner"
       />

@@ -3,21 +3,28 @@ import PaginationContainer from "../../components/pagination/PaginationContainer
 import SwitchPanelContainer from "../../components/switch-panel/SwitchPanelContainer";
 
 import styles from "./main-page_style.module.scss";
+import { Link } from "react-router-dom";
 
 const MainPage = ({ setPage, topMovies, searchMovies, search }) => {
   const moviesData =
     topMovies !== undefined &&
     topMovies.map((movie) => {
       return (
-        <MovieCard
-          movieTitle={movie.title}
-          movieImage={movie.poster_path}
-          estimation={movie.vote_average}
-          date={movie.release_date}
-          setPage={setPage}
-          movieId={movie.id}
-          key={movie.title}
-        />
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to={`movie/${movie.id}`}
+          key={movie.id}
+        >
+          <MovieCard
+            movieTitle={movie.title}
+            movieImage={movie.poster_path}
+            estimation={movie.vote_average}
+            date={movie.release_date}
+            setPage={setPage}
+            movieId={movie.id}
+            key={movie.id}
+          />
+        </Link>
       );
     });
 
