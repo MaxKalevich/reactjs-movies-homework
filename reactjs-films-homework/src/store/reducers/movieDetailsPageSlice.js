@@ -14,6 +14,7 @@ const initialState = {
   currentActorId: "",
   status: "",
   error: "",
+  load: false,
 };
 
 const movieDetailsPageSlice = createSlice({
@@ -22,6 +23,9 @@ const movieDetailsPageSlice = createSlice({
   reducers: {
     setActorId(state, action) {
       state.currentActorId = action.payload;
+    },
+    setLoading(state, action) {
+      state.load = action.payload;
     },
   },
   extraReducers: {
@@ -77,6 +81,6 @@ const movieDetailsPageSlice = createSlice({
   },
 });
 
-export const { setActorId } = movieDetailsPageSlice.actions;
+export const { setActorId, setLoading } = movieDetailsPageSlice.actions;
 
 export default movieDetailsPageSlice.reducer;

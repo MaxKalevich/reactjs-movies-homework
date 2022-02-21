@@ -6,9 +6,13 @@ import { SideEffect } from "./mainPageSideEffect";
 
 const MainPageContainer = () => {
   const funcSideEffect = SideEffect();
-  const { status, topMovies, search, searchMovies, error } = funcSideEffect;
+  const { status, topMovies, search, searchMovies, error, load } =
+    funcSideEffect;
+
   if (status === "loading") return <DownloadSpinner />;
+  if (load === true) return <DownloadSpinner />;
   if (status === "rejected") return <NotFoundComponent message={error} />;
+
   return (
     <MainPage
       topMovies={topMovies}

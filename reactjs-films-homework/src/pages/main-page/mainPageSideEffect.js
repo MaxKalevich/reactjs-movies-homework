@@ -17,6 +17,7 @@ export function SideEffect() {
     category,
     currentPage,
     error,
+    load,
   } = useSelector((state) => state.mainPageSlice);
   useEffect(() => {
     if (search.length === 0)
@@ -31,5 +32,6 @@ export function SideEffect() {
     searchMovies,
     error,
     dispatch,
+    load,
   };
 }

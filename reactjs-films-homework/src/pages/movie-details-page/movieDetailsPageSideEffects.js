@@ -12,7 +12,7 @@ export function MovieDetailsPageSideEffects() {
   const dispatch = useDispatch();
   const movieIdFromUrl = useParams().id;
   const { movieId, language } = useSelector((state) => state.mainPageSlice);
-  const { movieData, images, recommendationsMovie, movieCast, status } =
+  const { movieData, images, recommendationsMovie, movieCast, status, load } =
     useSelector((state) => state.movieDetailsPageSlice);
 
   useEffect(() => {
@@ -28,5 +28,6 @@ export function MovieDetailsPageSideEffects() {
     movieCast,
     movieId,
     status,
+    load,
   };
 }

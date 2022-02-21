@@ -3,6 +3,7 @@
 .header {
   background-color: $primary-color;
   height: 72px;
+  text-transform: uppercase;
 
   .wrapper {
     display: flex;
@@ -16,6 +17,7 @@
     .heading {
       color: $background-white-color;
       padding: 0 40px;
+      text-decoration: none;
     }
 
     .group {
@@ -28,4 +30,19 @@
 
 input {
   outline: none;
+}
+
+.heading h1:hover {
+  animation-duration: 1s;
+  animation-name: headerMove;
+  filter: brightness(90%);
+}
+@keyframes headerMove {
+  from {
+    font-size: 32px;
+  }
+
+  50% {
+    font-size: 33px;
+  }
 }

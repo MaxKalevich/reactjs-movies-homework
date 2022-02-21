@@ -3,6 +3,8 @@
   cursor: pointer;
   position: relative;
   max-height: 370px;
+  width: 150px;
+  border-radius: 10px;
 
   .movieImage {
     width: 150px;
@@ -34,4 +36,20 @@
       font-size: 1rem;
     }
   }
+}
+
+.card:hover {
+  color: firebrick;
+  transition: 0.5s;
+  .wrapper {
+    background-color: rgba(0, 0, 0, 0.15);
+    filter: brightness(70%);
+    border-radius: 10px;
+    height: 226px;
+    transition: 1s;
+  }
+}
+
+.wrapper {
+  height: 226px;
 }

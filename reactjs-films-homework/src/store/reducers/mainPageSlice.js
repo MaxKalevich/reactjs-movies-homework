@@ -24,6 +24,7 @@ const initialState = {
   totalPagesNumber: 5,
   pageSize: 20,
   movieId: "",
+  load: false,
 };
 
 const mainPageSlice = createSlice({
@@ -47,6 +48,9 @@ const mainPageSlice = createSlice({
     },
     setMovieId(state, action) {
       state.movieId = action.payload;
+    },
+    setLoading(state, action) {
+      state.load = action.payload;
     },
   },
   extraReducers: {
@@ -87,6 +91,7 @@ export const {
   setApiCategory,
   setCurrentPage,
   setMovieId,
+  setLoading,
 } = mainPageSlice.actions;
 
 export default mainPageSlice.reducer;

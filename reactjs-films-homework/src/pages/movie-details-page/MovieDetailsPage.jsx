@@ -6,12 +6,15 @@ import DownloadSpinner from "../../components/download-spinner/DownloadSpinner";
 
 import { MovieDetailsPageSideEffects } from "./movieDetailsPageSideEffects";
 import { Link } from "react-router-dom";
+
 import styles from "./movie-details-page_style.module.scss";
 
 const MovieDetailsPage = () => {
-  const { movieData, images, recommendationsMovie, movieCast, status } =
+  const { movieData, images, recommendationsMovie, movieCast, status, load } =
     MovieDetailsPageSideEffects();
+
   if (status === "loading") return <DownloadSpinner />;
+  if (load === true) return <DownloadSpinner />;
   return (
     <div className={styles.contentContainer}>
       {movieData !== undefined &&

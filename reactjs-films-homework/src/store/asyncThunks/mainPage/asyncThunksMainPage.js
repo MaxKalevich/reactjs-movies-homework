@@ -1,13 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE_URL, KEY } from "../../../service/Api";
+import { setLoading } from "../../reducers/mainPageSlice";
 
 export const fetchMovies = createAsyncThunk(
   "movies/categoryMovie",
   async function (
     { language, api_category, currentPage },
-    { rejectWithValue }
+    { rejectWithValue, dispatch }
   ) {
     try {
+      dispatch(setLoading(true));
       const response = await fetch(
         `${BASE_URL}movie/${api_category}?api_key=${KEY}&language=${language}&page=${currentPage}&include_adult=false`
       );
@@ -16,7 +18,7 @@ export const fetchMovies = createAsyncThunk(
           "Something went wrong... we apologize for the inconvenience caused."
         );
       }
-
+      setTimeout(() => dispatch(setLoading(false)), 500);
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
