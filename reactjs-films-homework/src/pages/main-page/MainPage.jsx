@@ -2,16 +2,18 @@ import MovieCard from "../../components/movie-card/MovieCard";
 import PaginationContainer from "../../components/pagination/PaginationContainer";
 import SwitchPanelContainer from "../../components/switch-panel/SwitchPanelContainer";
 
-import styles from "./main-page_style.module.scss";
 import { Link } from "react-router-dom";
 
-const MainPage = ({ setPage, topMovies, searchMovies, search }) => {
+import styles from "./main-page_style.module.scss";
+
+const MainPage = ({ setPage, topMovies, searchMovies, searchFromUrl }) => {
   const moviesData =
     topMovies !== undefined &&
     topMovies.map((movie) => {
       return (
         <Link
-          style={{ textDecoration: "none", color: "black" }}
+          className={styles.link}
+          style={{}}
           to={`movie/${movie.id}`}
           key={movie.id}
         >
@@ -32,14 +34,16 @@ const MainPage = ({ setPage, topMovies, searchMovies, search }) => {
     searchMovies !== undefined &&
     searchMovies.map((movie, index) => {
       return (
-        <MovieCard
-          movieTitle={movie.title}
-          movieImage={movie.backdrop_path}
-          estimation={movie.vote_average}
-          genre={movie.genre}
-          setPage={setPage}
-          key={movie.title + index}
-        />
+        <Link className={styles.link} to={`movie/${movie.id}`} key={movie.id}>
+          <MovieCard
+            movieTitle={movie.title}
+            movieImage={movie.poster_path}
+            estimation={movie.vote_average}
+            genre={movie.genre}
+            setPage={setPage}
+            key={movie.title + index}
+          />
+        </Link>
       );
     });
 
@@ -47,10 +51,10 @@ const MainPage = ({ setPage, topMovies, searchMovies, search }) => {
     <section className={styles.mainPage}>
       <SwitchPanelContainer />
       <main className={styles.cardContainer}>
-        {search.length !== 0 && searchMovies.length === 0 && (
+        {searchFromUrl.length !== 0 && searchMovies.length === 0 && (
           <h2>NO RESULTS FOUND</h2>
         )}
-        {search.length ? searchMoviesData : moviesData}
+        {searchFromUrl.length ? searchMoviesData : moviesData}
       </main>
       <PaginationContainer />
     </section>

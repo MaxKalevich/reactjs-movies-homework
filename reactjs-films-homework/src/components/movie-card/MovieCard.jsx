@@ -3,12 +3,15 @@ import { MovieCardSideEffects } from "./movieCardSideEffects";
 import styles from "./movie-card-style.module.scss";
 
 const MovieCard = ({ movieTitle, estimation, date, movieImage, movieId }) => {
-  const { dispatch, funcSetPMovieId } = MovieCardSideEffects();
+  const { dispatch, funcSetPMovieId, funcSetMovieName } =
+    MovieCardSideEffects();
+
   return (
     <div
       className={styles.card}
       onClick={() => {
         dispatch(funcSetPMovieId(movieId));
+        dispatch(funcSetMovieName(movieTitle));
       }}
     >
       <div className={styles.wrapper}>

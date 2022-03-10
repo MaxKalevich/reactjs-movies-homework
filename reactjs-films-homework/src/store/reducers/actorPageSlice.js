@@ -9,6 +9,8 @@ const initialState = {
   actorData: [],
   knownBy: [],
   actorImages: [],
+  languageFromUrl: "",
+  actorName: "",
   status: "",
   error: "",
 };
@@ -16,7 +18,14 @@ const initialState = {
 const actorPageSlice = createSlice({
   name: "movie/actorPage",
   initialState,
-  reducers: {},
+  reducers: {
+    setLanguageFromUrl(state, action) {
+      state.languageFromUrl = action.payload;
+    },
+    setActorName(state, action) {
+      state.actorName = action.payload;
+    },
+  },
   extraReducers: {
     [fetchActorData.pending]: (state) => {
       state.status = "loading";
@@ -58,5 +67,7 @@ const actorPageSlice = createSlice({
     },
   },
 });
+
+export const { setLanguageFromUrl, setActorName } = actorPageSlice.actions;
 
 export default actorPageSlice.reducer;

@@ -12,3 +12,33 @@
   margin: 10px;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 389px) {
+  .actorPhotoTab {
+    width: 100px;
+    height: 165px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .banner {
+    min-width: 100px;
+    height: 150px;
+    margin: 5px;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .actorPhotoTab {
+    width: 100px;
+    height: 165px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .banner {
+    min-width: 100px;
+    height: 150px;
+    margin: 5px;
+    border-radius: 10px;
+  }
+}

@@ -16,7 +16,13 @@ const App = () => {
         <div className={styles.appWrapper}>
           <Routes>
             {routes.map((route) => {
-              return <Route path={route.path} element={route.component} />;
+              return (
+                <Route
+                  path={route.path}
+                  element={route.component}
+                  key={route.title}
+                />
+              );
             })}
           </Routes>
         </div>

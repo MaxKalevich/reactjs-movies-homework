@@ -6,8 +6,15 @@ import { SideEffect } from "./mainPageSideEffect";
 
 const MainPageContainer = () => {
   const funcSideEffect = SideEffect();
-  const { status, topMovies, search, searchMovies, error, load } =
-    funcSideEffect;
+  const {
+    status,
+    topMovies,
+    search,
+    searchMovies,
+    error,
+    load,
+    searchFromUrl,
+  } = funcSideEffect;
 
   if (status === "loading") return <DownloadSpinner />;
   if (load === true) return <DownloadSpinner />;
@@ -18,6 +25,7 @@ const MainPageContainer = () => {
       topMovies={topMovies}
       searchMovies={searchMovies}
       search={search}
+      searchFromUrl={searchFromUrl}
     />
   );
 };

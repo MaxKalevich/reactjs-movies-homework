@@ -22,4 +22,25 @@
     text-align: center;
     height: 60vh;
   }
+
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .link {
+    display: flex;
+    color: black;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .link {
+    display: flex;
+    color: black;
+    justify-content: center;
+  }
 }

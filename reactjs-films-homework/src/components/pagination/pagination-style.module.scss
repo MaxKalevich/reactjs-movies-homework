@@ -18,3 +18,25 @@
     font-weight: bold;
   }
 }
+
+@media screen and (max-width: 389px) {
+  .pages {
+    margin: 20px 0;
+    padding: 21px;
+    overflow: hidden;
+    justify-content: flex-start;
+    display: flex;
+    width: 260px;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .pages {
+    margin: 20px 0;
+    padding: 21px;
+    overflow: hidden;
+    justify-content: inherit;
+    display: flex;
+    width: 90%;
+  }
+}

@@ -11,7 +11,9 @@ const Pagination = ({ pages, currentPage }) => {
         <span
           className={currentPage === page ? styles.currentPage : styles.page}
           key={index}
-          onClick={() => dispatch(funcSetCurrentPage(page))}
+          onClick={() => {
+            dispatch(funcSetCurrentPage(page));
+          }}
         >
           {page}
         </span>

@@ -23,3 +23,33 @@
 .category {
   color: black;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+@media screen and (max-width: 389px) {
+  .switchWrapper {
+    .itemList {
+      li {
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .switchWrapper {
+    .itemList {
+      li {
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 17px;
+      }
+    }
+  }
+}

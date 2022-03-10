@@ -3,10 +3,12 @@ import { createPages } from "./createPages";
 import { PaginationSideEffect } from "./paginationSideEffect";
 
 const PaginationContainer = () => {
-  const { totalPagesNumber, currentPage } = PaginationSideEffect();
+  const { totalPagesNumber, pageFromUrl } = PaginationSideEffect();
   const pages = [];
-  createPages(pages, totalPagesNumber, currentPage);
-  return <Pagination pages={pages} currentPage={currentPage} />;
+
+  createPages(pages, totalPagesNumber, pageFromUrl);
+
+  return <Pagination pages={pages} currentPage={pageFromUrl} />;
 };
 
 export default PaginationContainer;

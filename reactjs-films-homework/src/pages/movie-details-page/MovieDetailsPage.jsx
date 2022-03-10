@@ -5,6 +5,7 @@ import MovieInfo from "../../components/movie-info/MovieInfo";
 import DownloadSpinner from "../../components/download-spinner/DownloadSpinner";
 
 import { MovieDetailsPageSideEffects } from "./movieDetailsPageSideEffects";
+
 import { Link } from "react-router-dom";
 
 import styles from "./movie-details-page_style.module.scss";
@@ -15,6 +16,7 @@ const MovieDetailsPage = () => {
 
   if (status === "loading") return <DownloadSpinner />;
   if (load === true) return <DownloadSpinner />;
+
   return (
     <div className={styles.contentContainer}>
       {movieData !== undefined &&
@@ -26,7 +28,7 @@ const MovieDetailsPage = () => {
                 background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url("https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.poster_path}")`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                padding: "15px 45px",
+                // padding: "15px 45px",
                 color: "white",
                 borderRadius: "0 0 10px 10px",
               }}
@@ -82,7 +84,7 @@ const MovieDetailsPage = () => {
           recommendationsMovie.map((movie) => {
             return (
               <Link
-                style={{ textDecoration: "none", color: "black" }}
+                className={styles.link}
                 to={`/movieDetails/${movie.id}`}
                 key={movie.id}
               >

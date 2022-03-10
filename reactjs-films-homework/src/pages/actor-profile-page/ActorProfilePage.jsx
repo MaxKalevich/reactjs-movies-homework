@@ -1,16 +1,19 @@
 import ActorInfo from "../../components/actor-info/ActorInfo";
 import MovieCard from "../../components/movie-card/MovieCard";
+import DownloadSpinner from "../../components/download-spinner/DownloadSpinner";
 
 import { ActorProfilePageSideEffects } from "./actorProfilePageSideEffects";
 
-import styles from "./actor-profile-page_style.module.scss";
-import DownloadSpinner from "../../components/download-spinner/DownloadSpinner";
 import { Link } from "react-router-dom";
+
+import styles from "./actor-profile-page_style.module.scss";
 
 const ActorProfilePage = () => {
   const { actorData, knownBy, actorImages, status } =
     ActorProfilePageSideEffects();
+
   if (status === "loading") return <DownloadSpinner />;
+
   return (
     <div className={styles.contentContainer}>
       <div className={styles.detailsGroup}>
@@ -37,7 +40,7 @@ const ActorProfilePage = () => {
             knownBy.map((movie) => {
               return (
                 <Link
-                  style={{ textDecoration: "none", color: "black" }}
+                  className={styles.link}
                   to={`/movieDetails/${movie.id}`}
                   key={movie.id}
                 >

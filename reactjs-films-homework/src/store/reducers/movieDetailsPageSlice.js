@@ -14,6 +14,7 @@ const initialState = {
   currentActorId: "",
   status: "",
   error: "",
+  languageFromUrl: "",
   load: false,
 };
 
@@ -26,6 +27,9 @@ const movieDetailsPageSlice = createSlice({
     },
     setLoading(state, action) {
       state.load = action.payload;
+    },
+    setLanguageFromUrl(state, action) {
+      state.languageFromUrl = action.payload;
     },
   },
   extraReducers: {
@@ -81,6 +85,7 @@ const movieDetailsPageSlice = createSlice({
   },
 });
 
-export const { setActorId, setLoading } = movieDetailsPageSlice.actions;
+export const { setActorId, setLoading, setLanguageFromUrl } =
+  movieDetailsPageSlice.actions;
 
 export default movieDetailsPageSlice.reducer;

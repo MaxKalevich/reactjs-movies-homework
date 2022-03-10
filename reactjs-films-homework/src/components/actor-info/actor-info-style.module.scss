@@ -41,3 +41,48 @@
 span {
   display: block;
 }
+
+@media screen and (max-width: 389px) {
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 15px;
+
+    .name {
+      font-size: 20px;
+    }
+
+    .biography,
+    .birthdayPlace {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .link {
+    display: flex;
+    color: black;
+    justify-content: center;
+  }
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 15px;
+
+    .name {
+      font-size: 20px;
+    }
+
+    .biography,
+    .birthdayPlace {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+  }
+}

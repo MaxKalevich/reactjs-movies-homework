@@ -24,6 +24,11 @@ const initialState = {
   totalPagesNumber: 5,
   pageSize: 20,
   movieId: "",
+  movieName: "",
+  pageFromUrl: 1,
+  categoryFromUrl: "popular",
+  languageFromUrl: "en",
+  searchFromUrl: "",
   load: false,
 };
 
@@ -49,8 +54,23 @@ const mainPageSlice = createSlice({
     setMovieId(state, action) {
       state.movieId = action.payload;
     },
+    setMovieName(state, action) {
+      state.movieName = action.payload;
+    },
     setLoading(state, action) {
       state.load = action.payload;
+    },
+    setPageFromUrl(state, action) {
+      state.pageFromUrl = action.payload;
+    },
+    setCategoryFromUrl(state, action) {
+      state.categoryFromUrl = action.payload;
+    },
+    setLanguageFromUrl(state, action) {
+      state.languageFromUrl = action.payload;
+    },
+    setSearchFromUrl(state, action) {
+      state.searchFromUrl = action.payload;
     },
   },
   extraReducers: {
@@ -92,6 +112,11 @@ export const {
   setCurrentPage,
   setMovieId,
   setLoading,
+  setMovieName,
+  setPageFromUrl,
+  setCategoryFromUrl,
+  setLanguageFromUrl,
+  setSearchFromUrl,
 } = mainPageSlice.actions;
 
 export default mainPageSlice.reducer;

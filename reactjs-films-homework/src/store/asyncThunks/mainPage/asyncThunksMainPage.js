@@ -1,24 +1,21 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE_URL, KEY } from "../../../service/Api";
-import { setLoading } from "../../reducers/mainPageSlice";
 
 export const fetchMovies = createAsyncThunk(
   "movies/categoryMovie",
   async function (
-    { language, api_category, currentPage },
-    { rejectWithValue, dispatch }
+    { actualLanguage, actualCategory, actualPage },
+    { rejectWithValue }
   ) {
     try {
-      dispatch(setLoading(true));
       const response = await fetch(
-        `${BASE_URL}movie/${api_category}?api_key=${KEY}&language=${language}&page=${currentPage}&include_adult=false`
+        `${BASE_URL}movie/${actualCategory}?api_key=${KEY}&language=${actualLanguage}&page=${actualPage}&include_adult=false`
       );
       if (!response.ok) {
         throw new Error(
           "Something went wrong... we apologize for the inconvenience caused."
         );
       }
-      setTimeout(() => dispatch(setLoading(false)), 500);
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -28,10 +25,10 @@ export const fetchMovies = createAsyncThunk(
 
 export const fetchSearchMovies = createAsyncThunk(
   "movies/searchMovies",
-  async function ({ language, search }, { rejectWithValue }) {
+  async function ({ actualLanguage, actualSearch }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}search/movie?api_key=${KEY}&language=${language}&page=1&query=${search}`
+        `${BASE_URL}search/movie?api_key=${KEY}&language=${actualLanguage}&page=1&query=${actualSearch}`
       );
       if (!response.ok) {
         throw new Error("No Data");

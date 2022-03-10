@@ -3,7 +3,8 @@ import { SearchFieldSideEffects } from "./searchFieldSideEffects";
 import styles from "./search-field_style.module.scss";
 
 const SearchField = () => {
-  const { search, funcSetSearchData, dispatch } = SearchFieldSideEffects();
+  const { funcSetSearchData, dispatch, searchFromUrl } =
+    SearchFieldSideEffects();
   const onSubmitSearchData = (e) => {
     dispatch(funcSetSearchData(e));
   };
@@ -12,11 +13,11 @@ const SearchField = () => {
     <div className={styles.search}>
       <input
         className={styles.searchBar}
-        type="text"
+        type="search"
         id="search"
-        value={search}
+        value={searchFromUrl}
         onChange={(e) => onSubmitSearchData(e.target.value)}
-        placeholder="Movies, person, movie theaters"
+        placeholder="Enter the name of the movie..."
       />
       <img
         className={styles.searchIcon}

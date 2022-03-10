@@ -2,9 +2,10 @@ import { SwitchPanelSideEffect } from "./switchPanelSideEffect";
 
 import styles from "./switch-panel-style.module.scss";
 
-const SwitchPanel = ({ category, categories }) => {
+const SwitchPanel = ({ categories, categoryFromUrl }) => {
   const { dispatch, funcSetApiCategory, funcSetCategory } =
     SwitchPanelSideEffect();
+
   return (
     <div className={styles.switchWrapper}>
       <ul className={styles.itemList}>
@@ -12,7 +13,9 @@ const SwitchPanel = ({ category, categories }) => {
           return (
             <li
               className={
-                cat.name === category ? styles.currentCategory : styles.category
+                cat.api_name === categoryFromUrl
+                  ? styles.currentCategory
+                  : styles.category
               }
               onClick={() => {
                 dispatch(funcSetCategory(cat.name));

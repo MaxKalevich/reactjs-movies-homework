@@ -1,6 +1,10 @@
 @import "src/variables";
 
 .contentContainer {
+  .link {
+    text-decoration: none;
+    color: black;
+  }
   .movieBannerInfoContainer {
     display: flex;
     background-color: $background-white-color;
@@ -47,4 +51,84 @@
 
 div > h3 {
   font-weight: 600;
+}
+
+@media screen and (max-width: 389px) {
+  .contentContainer {
+    .movieBannerInfoContainer {
+      display: flex;
+      background-color: $background-white-color;
+      padding: 0;
+    }
+
+    .recommendations {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      grid-gap: 1vw;
+      padding: 15px 45px;
+    }
+
+    .actorImagesGroup {
+      margin-left: 0;
+
+      .cardContainer {
+        display: flex;
+        overflow: hidden;
+        max-height: 263px;
+      }
+
+      .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        grid-gap: 1.5vw;
+      }
+    }
+
+    .recommendationsHeader {
+      padding-left: 52px;
+      margin-top: 20px;
+    }
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .contentContainer {
+    .link {
+      display: flex;
+      justify-content: center;
+    }
+    .movieBannerInfoContainer {
+      display: flex;
+      background-color: $background-white-color;
+      padding: 0;
+    }
+
+    .recommendations {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+      grid-gap: 1vw;
+      padding: 15px 45px;
+    }
+
+    .actorImagesGroup {
+      margin-left: 0;
+
+      .cardContainer {
+        display: flex;
+        overflow: hidden;
+        max-height: 263px;
+      }
+
+      .images {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        grid-gap: 1.5vw;
+      }
+    }
+
+    .recommendationsHeader {
+      padding-left: 52px;
+      margin-top: 20px;
+    }
+  }
 }

@@ -13,11 +13,13 @@
     max-width: $wrapper-width;
     padding: 0 30px;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     .heading {
       color: $background-white-color;
       padding: 0 40px;
       text-decoration: none;
+      font-size: 1.5rem;
     }
 
     .group {
@@ -32,17 +34,52 @@ input {
   outline: none;
 }
 
-.heading h1:hover {
-  animation-duration: 1s;
-  animation-name: headerMove;
-  filter: brightness(90%);
-}
-@keyframes headerMove {
-  from {
-    font-size: 32px;
-  }
+@media screen and (max-width: 389px) {
+  .header {
+    height: 69px;
 
-  50% {
-    font-size: 33px;
+    .wrapper {
+      height: 59px;
+      .heading {
+        font-size: 20px;
+        padding: 0;
+      }
+
+      .group {
+      }
+    }
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .header {
+    height: 69px;
+
+    .wrapper {
+      height: 59px;
+      display: flex;
+      justify-content: space-between;
+      .heading {
+        font-size: 20px;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 715px) and (max-width: 926px) {
+  .header {
+    height: 69px;
+
+    .wrapper {
+      height: 59px;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      .heading {
+        font-size: 25px;
+        padding: 0;
+      }
+    }
   }
 }

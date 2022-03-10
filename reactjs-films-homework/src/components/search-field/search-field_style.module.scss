@@ -19,3 +19,21 @@
     cursor: pointer;
   }
 }
+
+@media screen and (max-width: 389px) {
+  .search {
+    .searchBar {
+      width: 180px;
+      font-size: 11px;
+    }
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .search {
+    .searchBar {
+      width: 230px;
+      font-size: 14px;
+    }
+  }
+}

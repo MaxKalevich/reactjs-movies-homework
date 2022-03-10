@@ -3,13 +3,15 @@ import { ActorCardSideEffects } from "./actorCardSideEffects";
 import styles from "./actor-card-style.module.scss";
 
 const ActorCard = ({ name, photo, role, id }) => {
-  const { dispatch, funcSetPage, funcSetActorId } = ActorCardSideEffects();
+  const { dispatch, funcSetPage, funcSetActorId, funcSetActorName } =
+    ActorCardSideEffects();
   return (
     <div
       className={styles.container}
       onClick={() => {
         dispatch(funcSetPage("actorDetails"));
         dispatch(funcSetActorId(id));
+        dispatch(funcSetActorName(name));
       }}
     >
       <img

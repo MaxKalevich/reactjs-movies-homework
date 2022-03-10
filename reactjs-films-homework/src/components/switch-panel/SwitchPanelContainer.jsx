@@ -1,9 +1,13 @@
 import SwitchPanel from "./SwitchPanel";
+
 import { SwitchPanelSideEffect } from "./switchPanelSideEffect";
 
 const SwitchPanelContainer = () => {
-  const { category, categories } = SwitchPanelSideEffect();
-  return <SwitchPanel category={category} categories={categories} />;
+  const { categoryFromUrl, categories } = SwitchPanelSideEffect();
+
+  return (
+    <SwitchPanel categories={categories} categoryFromUrl={categoryFromUrl} />
+  );
 };
 
 export default SwitchPanelContainer;
