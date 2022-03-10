@@ -72,12 +72,14 @@ export function SideEffect() {
   ]);
 
   useEffect(() => {
+    console.log(parsed);
     if (search.length > 0) {
       let actualSearch = search;
       let actualLanguage = language;
 
       if (parsed.search !== undefined) {
         actualSearch = parsed.search;
+        console.log(actualSearch);
         dispatch(setSearchFromUrl(actualSearch));
       }
       if (parsed.search === undefined) {
@@ -93,6 +95,7 @@ export function SideEffect() {
       location(`?filter=${api_category}&page=${currentPage}&lang=${language}`);
     dispatch(setSearchFromUrl(""));
     if (search) {
+      dispatch(setSearchFromUrl(search));
       location(
         `?filter=${api_category}&page=${currentPage}&lang=${language}&search=${search}`
       );
