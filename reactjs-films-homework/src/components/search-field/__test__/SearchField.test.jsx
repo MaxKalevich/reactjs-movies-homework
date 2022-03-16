@@ -11,7 +11,7 @@ describe("Checking SearchField component", () => {
       </Provider>
     );
     expect(
-      screen.getByPlaceholderText("Movies, person, movie theaters")
+      screen.getByPlaceholderText("Enter the name of the movie...")
     ).toBeInTheDocument();
   });
   it("Contains altText in SearchField component", () => {

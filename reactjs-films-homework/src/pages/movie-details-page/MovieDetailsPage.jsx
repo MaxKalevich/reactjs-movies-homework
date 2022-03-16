@@ -11,8 +11,15 @@ import { Link } from "react-router-dom";
 import styles from "./movie-details-page_style.module.scss";
 
 const MovieDetailsPage = () => {
-  const { movieData, images, recommendationsMovie, movieCast, status, load } =
-    MovieDetailsPageSideEffects();
+  const {
+    movieData,
+    images,
+    recommendationsMovie,
+    movieCast,
+    status,
+    load,
+    language,
+  } = MovieDetailsPageSideEffects();
 
   if (status === "loading") return <DownloadSpinner />;
   if (load === true) return <DownloadSpinner />;
@@ -28,7 +35,6 @@ const MovieDetailsPage = () => {
                 background: `linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5) ), url("https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.poster_path}")`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                // padding: "15px 45px",
                 color: "white",
                 borderRadius: "0 0 10px 10px",
               }}
@@ -56,7 +62,7 @@ const MovieDetailsPage = () => {
               return (
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
-                  to={`actor/${actor.id}`}
+                  to={`actor/${actor.id}?name=${actor.name}&lang=${language}`}
                   key={actor.id}
                 >
                   <ActorCard
@@ -85,7 +91,7 @@ const MovieDetailsPage = () => {
             return (
               <Link
                 className={styles.link}
-                to={`/movieDetails/${movie.id}`}
+                to={`/movieDetails/${movie.id}?name=${movie.title}&lang=${language}`}
                 key={movie.id}
               >
                 <MovieCard

@@ -1,8 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import MovieDetailsPage from "../MovieDetailsPage";
+import { Provider } from "react-redux";
+import { store } from "../../../store/store";
 
 describe("Checking MovieDetailsPage component", () => {
-  it("Contains text 'Top Billed Cast'", () => {
+  it("Contains text 'Top Billed Cast'", async () => {
     const movieDetailsPageMockData = [
       {
         actors: [
@@ -19,15 +21,17 @@ describe("Checking MovieDetailsPage component", () => {
     ];
     const moviesMockData = [];
     render(
-      <MovieDetailsPage
-        movieDetailsPageMockData={movieDetailsPageMockData}
-        moviesMockData={moviesMockData}
-      />
+      <Provider store={store}>
+        <MovieDetailsPage
+          movieDetailsPageMockData={movieDetailsPageMockData}
+          moviesMockData={moviesMockData}
+        />
+      </Provider>
     );
-    const linkElement = screen.getByText(/Top Billed Cast/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.findByText(/Top Billed Cast/i);
+    expect(await linkElement).toBeInTheDocument();
   });
-  it("Contains text 'Images'", () => {
+  it("Contains text 'Images'", async () => {
     const movieDetailsPageMockData = [
       {
         actors: [
@@ -44,15 +48,17 @@ describe("Checking MovieDetailsPage component", () => {
     ];
     const moviesMockData = [];
     render(
-      <MovieDetailsPage
-        movieDetailsPageMockData={movieDetailsPageMockData}
-        moviesMockData={moviesMockData}
-      />
+      <Provider store={store}>
+        <MovieDetailsPage
+          movieDetailsPageMockData={movieDetailsPageMockData}
+          moviesMockData={moviesMockData}
+        />
+      </Provider>
     );
-    const linkElement = screen.getByText(/Images/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.findByText(/Images/i);
+    expect(await linkElement).toBeInTheDocument();
   });
-  it("Contains text 'Recommendations'", () => {
+  it("Contains text 'Recommendations'", async () => {
     const movieDetailsPageMockData = [
       {
         actors: [
@@ -69,12 +75,14 @@ describe("Checking MovieDetailsPage component", () => {
     ];
     const moviesMockData = [];
     render(
-      <MovieDetailsPage
-        movieDetailsPageMockData={movieDetailsPageMockData}
-        moviesMockData={moviesMockData}
-      />
+      <Provider store={store}>
+        <MovieDetailsPage
+          movieDetailsPageMockData={movieDetailsPageMockData}
+          moviesMockData={moviesMockData}
+        />
+      </Provider>
     );
-    const linkElement = screen.getByText(/Recommendations/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.findByText(/Recommendations/i);
+    expect(await linkElement).toBeInTheDocument();
   });
 });

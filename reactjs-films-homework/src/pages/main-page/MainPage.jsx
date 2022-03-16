@@ -6,15 +6,22 @@ import { Link } from "react-router-dom";
 
 import styles from "./main-page_style.module.scss";
 
-const MainPage = ({ setPage, topMovies, searchMovies, searchFromUrl }) => {
+const MainPage = ({
+  setPage,
+  topMovies,
+  searchMovies,
+  searchFromUrl,
+  api_category,
+  language,
+  search,
+}) => {
   const moviesData =
     topMovies !== undefined &&
     topMovies.map((movie) => {
       return (
         <Link
           className={styles.link}
-          style={{}}
-          to={`movie/${movie.id}`}
+          to={`movie/${movie.id}?filter=${api_category}&name=${movie.title}&lang=${language}`}
           key={movie.id}
         >
           <MovieCard
@@ -32,9 +39,14 @@ const MainPage = ({ setPage, topMovies, searchMovies, searchFromUrl }) => {
 
   const searchMoviesData =
     searchMovies !== undefined &&
+    search !== undefined &&
     searchMovies.map((movie, index) => {
       return (
-        <Link className={styles.link} to={`movie/${movie.id}`} key={movie.id}>
+        <Link
+          className={styles.link}
+          to={`movie/${movie.id}?filter=${api_category}&name=${movie.title}&lang=${language}&search=${search}`}
+          key={movie.id}
+        >
           <MovieCard
             movieTitle={movie.title}
             movieImage={movie.poster_path}
@@ -51,10 +63,12 @@ const MainPage = ({ setPage, topMovies, searchMovies, searchFromUrl }) => {
     <section className={styles.mainPage}>
       <SwitchPanelContainer />
       <main className={styles.cardContainer}>
-        {searchFromUrl.length !== 0 && searchMovies.length === 0 && (
-          <h2>NO RESULTS FOUND</h2>
-        )}
-        {searchFromUrl.length ? searchMoviesData : moviesData}
+        {searchFromUrl !== undefined &&
+          searchFromUrl.length !== 0 &&
+          searchMovies.length === 0 && <h2>NO RESULTS FOUND</h2>}
+        {searchFromUrl !== undefined && searchFromUrl.length
+          ? searchMoviesData
+          : moviesData}
       </main>
       <PaginationContainer />
     </section>

@@ -3,10 +3,10 @@ import { BASE_URL, KEY } from "../../../service/Api";
 
 export const fetchActorData = createAsyncThunk(
   "actorPage/actorData",
-  async function ({ actualLanguage, actorIdFromUrl }, { rejectWithValue }) {
+  async function ({ language, actorIdFromUrl }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}person/${actorIdFromUrl}?api_key=${KEY}&language=${actualLanguage}`
+        `${BASE_URL}person/${actorIdFromUrl}?api_key=${KEY}&language=${language}`
       );
       if (!response.ok) {
         throw new Error("An error occurred...No Data");
@@ -20,10 +20,10 @@ export const fetchActorData = createAsyncThunk(
 
 export const fetchKnownBy = createAsyncThunk(
   "movieDetails/knownBy",
-  async function ({ actualLanguage, actorIdFromUrl }, { rejectWithValue }) {
+  async function ({ language, actorIdFromUrl }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}person/${actorIdFromUrl}/movie_credits?api_key=${KEY}&language=${actualLanguage}`
+        `${BASE_URL}person/${actorIdFromUrl}/movie_credits?api_key=${KEY}&language=${language}`
       );
       if (!response.ok) {
         throw new Error("An error occurred...No Data");
@@ -37,10 +37,10 @@ export const fetchKnownBy = createAsyncThunk(
 
 export const fetchActorImages = createAsyncThunk(
   "movieDetails/actorImages",
-  async function ({ actualLanguage, actorIdFromUrl }, { rejectWithValue }) {
+  async function ({ language, actorIdFromUrl }, { rejectWithValue }) {
     try {
       const response = await fetch(
-        `${BASE_URL}person/${actorIdFromUrl}/images?api_key=${KEY}&language=${actualLanguage}&page=1`
+        `${BASE_URL}person/${actorIdFromUrl}/images?api_key=${KEY}&language=${language}&page=1`
       );
       if (!response.ok) {
         throw new Error("An error occurred...No Data");

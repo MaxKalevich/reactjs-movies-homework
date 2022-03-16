@@ -15,7 +15,7 @@ describe("Checking MovieInfo component", () => {
     expect(screen.getByText("Revenue")).toBeInTheDocument();
   });
   it("contains duration text", () => {
-    render(<MovieInfo movieTitle={"duration"} />);
-    expect(screen.getByText("Duration")).toBeInTheDocument();
+    render(<MovieInfo movieTitle={"Website"} />);
+    expect(screen.getByText("Website")).toBeInTheDocument();
   });
 });

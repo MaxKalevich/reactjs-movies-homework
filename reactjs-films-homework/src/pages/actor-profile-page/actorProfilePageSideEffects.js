@@ -5,18 +5,10 @@ import {
   fetchActorImages,
   fetchKnownBy,
 } from "../../store/asyncThunks/actorPage/asyncThunkActorPage";
-import { useLocation, useNavigate, useParams } from "react-router";
-import queryString from "querystring";
-import { setLanguageFromUrl } from "../../store/reducers/actorPageSlice";
+import { useParams } from "react-router";
 
 export function ActorProfilePageSideEffects() {
   const dispatch = useDispatch();
-  const location = useNavigate();
-  const history = useLocation();
-
-  const parsed = queryString.parse(history.search.substr(1));
-
-  const languageFromUrl = parsed.lang;
 
   const { currentActorId, movieId } = useSelector(
     (state) => state.movieDetailsPageSlice
@@ -31,30 +23,10 @@ export function ActorProfilePageSideEffects() {
   );
 
   useEffect(() => {
-    dispatch(setLanguageFromUrl(languageFromUrl));
-
-    let actualLanguage = language;
-
-    if (parsed.lang) actualLanguage = parsed.lang;
-
-    dispatch(fetchActorData({ actualLanguage, actorIdFromUrl }));
-    dispatch(fetchKnownBy({ actualLanguage, actorIdFromUrl }));
-    dispatch(fetchActorImages({ actualLanguage, actorIdFromUrl }));
-  }, [
-    dispatch,
-    history.search,
-    languageFromUrl,
-    language,
-    parsed.filter,
-    parsed.lang,
-    parsed.page,
-    actorIdFromUrl,
-    parsed.name,
-  ]);
-
-  useEffect(() => {
-    location(`?lang=${language}&name=${actorName}`);
-  }, [language, location, actorName]);
+    dispatch(fetchActorData({ language, actorIdFromUrl }));
+    dispatch(fetchKnownBy({ language, actorIdFromUrl }));
+    dispatch(fetchActorImages({ language, actorIdFromUrl }));
+  }, [language, actorName, dispatch, actorIdFromUrl]);
 
   return {
     actorData,
@@ -63,5 +35,6 @@ export function ActorProfilePageSideEffects() {
     currentActorId,
     movieId,
     status,
+    language,
   };
 }

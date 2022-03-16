@@ -14,6 +14,8 @@ const MainPageContainer = () => {
     error,
     load,
     searchFromUrl,
+    language,
+    api_category,
   } = funcSideEffect;
 
   if (status === "loading") return <DownloadSpinner />;
@@ -26,6 +28,8 @@ const MainPageContainer = () => {
       searchMovies={searchMovies}
       search={search}
       searchFromUrl={searchFromUrl}
+      language={language}
+      api_category={api_category}
     />
   );
 };

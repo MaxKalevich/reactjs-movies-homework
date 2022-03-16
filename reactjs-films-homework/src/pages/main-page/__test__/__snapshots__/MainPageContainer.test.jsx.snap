@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checking MainPage component Snapshot 1`] = `
+exports[`Checking MainPageContainer component Snapshot 1`] = `
 <DocumentFragment>
   <section
     class="mainPage"

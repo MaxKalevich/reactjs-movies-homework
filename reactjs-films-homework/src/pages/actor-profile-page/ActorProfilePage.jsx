@@ -9,9 +9,8 @@ import { Link } from "react-router-dom";
 import styles from "./actor-profile-page_style.module.scss";
 
 const ActorProfilePage = () => {
-  const { actorData, knownBy, actorImages, status } =
+  const { actorData, knownBy, actorImages, status, language } =
     ActorProfilePageSideEffects();
-
   if (status === "loading") return <DownloadSpinner />;
 
   return (
@@ -41,7 +40,7 @@ const ActorProfilePage = () => {
               return (
                 <Link
                   className={styles.link}
-                  to={`/movieDetails/${movie.id}`}
+                  to={`/movieDetails/${movie.id}?name=${movie.title}&lang=${language}`}
                   key={movie.id}
                 >
                   <MovieCard
