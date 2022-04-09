@@ -4,12 +4,14 @@ import { BASE_URL, KEY } from "../../../service/Api";
 export const fetchMovies = createAsyncThunk(
   "movies/categoryMovie",
   async function (
-    { actualLanguage, actualCategory, actualPage },
+    { lang = "en", category = "popular", page = 1 },
     { rejectWithValue }
   ) {
     try {
       const response = await fetch(
-        `${BASE_URL}movie/${actualCategory}?api_key=${KEY}&language=${actualLanguage}&page=${actualPage}&include_adult=false`
+        `${BASE_URL}movie/${category}?api_key=${KEY}&language=${
+          lang ? lang : "en"
+        }&page=${page}&include_adult=false`
       );
       if (!response.ok) {
         throw new Error(
@@ -25,7 +27,10 @@ export const fetchMovies = createAsyncThunk(
 
 export const fetchSearchMovies = createAsyncThunk(
   "movies/searchMovies",
-  async function ({ actualLanguage, actualSearch }, { rejectWithValue }) {
+  async function (
+    { actualLanguage = "en", actualSearch },
+    { rejectWithValue }
+  ) {
     try {
       const response = await fetch(
         `${BASE_URL}search/movie?api_key=${KEY}&language=${actualLanguage}&page=1&query=${actualSearch}`

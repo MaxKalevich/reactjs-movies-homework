@@ -1,13 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router";
 import { useEffect } from "react";
-
 import {
   fetchMovies,
   fetchSearchMovies,
 } from "../../store/asyncThunks/mainPage/asyncThunksMainPage";
-
-import { useLocation, useNavigate } from "react-router";
-import * as queryString from "querystring";
+import queryString from "querystring";
 import {
   setCategoryFromUrl,
   setLanguageFromUrl,
@@ -20,12 +18,6 @@ export function SideEffect() {
   const dispatch = useDispatch();
   const history = useLocation();
 
-  const parsed = queryString.parse(history.search.substr(1));
-
-  const pageFromUrl = parsed.page;
-  const categoryFromUrl = parsed.filter;
-  const languageFromUrl = parsed.lang;
-
   const {
     status,
     topMovies,
@@ -33,72 +25,87 @@ export function SideEffect() {
     search,
     searchMovies,
     api_category,
+    pageFromUrl,
     currentPage,
     error,
     load,
     searchFromUrl,
+    categoryFromUrl,
+    languageFromUrl,
   } = useSelector((state) => state.mainPageSlice);
 
+  // Fetch Data
   useEffect(() => {
-    dispatch(setPageFromUrl(+pageFromUrl));
-    dispatch(setCategoryFromUrl(categoryFromUrl));
-    dispatch(setLanguageFromUrl(languageFromUrl));
+    const parsed = queryString.parse(history.search.substr(1));
+    if (search.length === 0) {
+      if (parsed.filter === undefined) parsed.filter = categoryFromUrl;
+      if (parsed.page === undefined) parsed.page = pageFromUrl;
+      if (parsed.lang === undefined) parsed.lang = languageFromUrl;
 
-    let actualPage = currentPage;
-    let actualCategory = api_category;
-    let actualLanguage = language;
+      let category = parsed.filter;
+      let page = parsed.page;
+      let lang = parsed.lang;
 
-    if (parsed.page) actualPage = +parsed.page;
-
-    if (parsed.filter) actualCategory = parsed.filter;
-
-    if (parsed.lang) actualLanguage = parsed.lang;
-
-    if (search.length === 0)
-      dispatch(fetchMovies({ actualLanguage, actualCategory, actualPage }));
+      dispatch(fetchMovies({ lang, category, page }));
+    }
   }, [
     dispatch,
     history.search,
-    api_category,
-    currentPage,
-    pageFromUrl,
-    languageFromUrl,
     categoryFromUrl,
     language,
-    parsed.filter,
-    parsed.lang,
-    parsed.page,
+    languageFromUrl,
+    pageFromUrl,
     search.length,
   ]);
 
+  // Initial URL
   useEffect(() => {
-    if (search.length > 0) {
-      let actualSearch = search;
+    const parsed = queryString.parse(history.search.substr(1));
+
+    if (parsed.filter === categoryFromUrl || parsed.filter === undefined) {
+      if (search.length === 0) {
+        location(
+          `?filter=${api_category}&page=${currentPage}&lang=${language}`
+        );
+      }
+    }
+  }, [api_category, currentPage, language, location, search.length]);
+
+  // Check URL
+  useEffect(() => {
+    const parsed = queryString.parse(history.search.substr(1));
+
+    dispatch(setPageFromUrl(+parsed.page));
+    dispatch(setCategoryFromUrl(parsed.filter));
+    dispatch(setLanguageFromUrl(parsed.lang));
+  }, [dispatch, history.search]);
+
+  // Search
+  useEffect(() => {
+    const parsed = queryString.parse(history.search.substr(1));
+    let actualSearch = searchFromUrl;
+
+    dispatch(setSearchFromUrl(parsed.search));
+    if (parsed.search) parsed.search = actualSearch;
+    if (parsed.search === "undefined") parsed.search = "";
+    if (actualSearch) {
+      actualSearch = search;
+      console.log(actualSearch);
       let actualLanguage = language;
 
-      if (parsed.search !== undefined) {
+      dispatch(setSearchFromUrl(""));
+      location(
+        `?filter=${parsed.filter}&page=${parsed.page}&lang=${
+          parsed.lang
+        }&search=${actualSearch ? actualSearch : parsed.search}`
+      );
+      if (parsed.search) {
         actualSearch = parsed.search;
         dispatch(setSearchFromUrl(actualSearch));
       }
-      if (parsed.search === undefined) {
-        dispatch(setSearchFromUrl(""));
-      }
-
       dispatch(fetchSearchMovies({ actualLanguage, actualSearch }));
     }
-  }, [search, dispatch, language, parsed.search, parsed.lang]);
-
-  useEffect(() => {
-    if (search.length === 0)
-      location(`?filter=${api_category}&page=${currentPage}&lang=${language}`);
-    dispatch(setSearchFromUrl(""));
-    if (search) {
-      dispatch(setSearchFromUrl(search));
-      location(
-        `?filter=${api_category}&page=${currentPage}&lang=${language}&search=${search}`
-      );
-    }
-  }, [currentPage, language, api_category, location, search, dispatch]);
+  }, [search, searchFromUrl, dispatch, location, history.search]);
 
   return {
     status,

@@ -26,8 +26,8 @@ const initialState = {
   movieId: "",
   movieName: "",
   pageFromUrl: 1,
-  categoryFromUrl: "popular",
-  languageFromUrl: "en",
+  categoryFromUrl: "",
+  languageFromUrl: "",
   searchFromUrl: "",
   load: false,
 };

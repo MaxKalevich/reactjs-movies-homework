@@ -2,7 +2,7 @@ import { SwitchPanelSideEffect } from "./switchPanelSideEffect";
 
 import styles from "./switch-panel-style.module.scss";
 
-const SwitchPanel = ({ categories, categoryFromUrl }) => {
+const SwitchPanel = ({ categories, categoryFromUrl, api_category }) => {
   const { dispatch, funcSetApiCategory, funcSetCategory } =
     SwitchPanelSideEffect();
 

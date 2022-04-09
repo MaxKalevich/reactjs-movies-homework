@@ -16,15 +16,18 @@
   .estimationMovie {
     position: absolute;
     display: block;
-    height: 20px;
-    line-height: 20px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
     text-align: center;
     align-items: center;
     background-color: limegreen;
-    border-radius: 5px;
+    border-radius: 28px;
     top: 10px;
     left: -3px;
     color: white;
+    overflow: hidden;
+    border: 2px lightgreen solid;
   }
 
   .movieInfo {

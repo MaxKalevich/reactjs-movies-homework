@@ -8,7 +8,9 @@ export function SwitchPanelSideEffect() {
   const dispatch = useDispatch();
   const funcSetApiCategory = setApiCategory;
   const funcSetCategory = setCategory;
-  const { categoryFromUrl } = useSelector((state) => state.mainPageSlice);
+  const { categoryFromUrl, api_category } = useSelector(
+    (state) => state.mainPageSlice
+  );
   const { categories } = useSelector((state) => state.mainPageSlice);
 
   return {
@@ -17,5 +19,6 @@ export function SwitchPanelSideEffect() {
     funcSetCategory,
     categories,
     categoryFromUrl,
+    api_category,
   };
 }

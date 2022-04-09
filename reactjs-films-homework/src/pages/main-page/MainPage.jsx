@@ -66,7 +66,7 @@ const MainPage = ({
         {searchFromUrl !== undefined &&
           searchFromUrl.length !== 0 &&
           searchMovies.length === 0 && <h2>NO RESULTS FOUND</h2>}
-        {searchFromUrl !== undefined && searchFromUrl.length
+        {(search !== undefined && search.length) || searchFromUrl
           ? searchMoviesData
           : moviesData}
       </main>
