@@ -1,0 +1,88 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin: 15px;
+
+  .name {
+    font-size: 52px;
+  }
+
+  .biography,
+  .birthdayPlace {
+    margin-top: 8px;
+    font-size: 20px;
+  }
+}
+
+.headerPhotos {
+  margin-top: 40px;
+}
+
+.photosContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-gap: 1vw;
+}
+
+.biographyHeader {
+  font-weight: 600;
+  font-size: 19px;
+  margin-top: 10px;
+}
+
+.birthday,
+.placeOfBirth {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+span {
+  display: block;
+}
+
+@media screen and (max-width: 389px) {
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 15px;
+
+    .name {
+      font-size: 20px;
+    }
+
+    .biography,
+    .birthdayPlace {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .link {
+    display: flex;
+    color: black;
+    justify-content: center;
+  }
+  .contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 15px;
+
+    .name {
+      font-size: 20px;
+    }
+
+    .biography,
+    .birthdayPlace {
+      margin-top: 8px;
+      font-size: 12px;
+    }
+  }
+}

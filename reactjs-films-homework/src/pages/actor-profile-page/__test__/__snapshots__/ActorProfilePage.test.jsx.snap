@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checking ActorProfilePage component render ActorProfilePage component 1`] = `
+<DocumentFragment>
+  <img
+    alt="spinner"
+    class="spinner"
+    src="/download_spinner.svg"
+  />
+</DocumentFragment>
+`;

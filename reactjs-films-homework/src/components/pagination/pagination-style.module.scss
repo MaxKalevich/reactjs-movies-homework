@@ -1,0 +1,42 @@
+.pages {
+  margin: 20px 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  .page,
+  .currentPage {
+    border: 1px solid lightgray;
+    border-radius: 100%;
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  .currentPage {
+    color: firebrick;
+    border: 2px solid lightgray;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  .pages {
+    margin: 20px 0;
+    padding: 21px;
+    overflow: hidden;
+    justify-content: flex-start;
+    display: flex;
+    width: 260px;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .pages {
+    margin: 20px 0;
+    padding: 21px;
+    overflow: hidden;
+    justify-content: inherit;
+    display: flex;
+    width: 90%;
+  }
+}

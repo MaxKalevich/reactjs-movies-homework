@@ -1,0 +1,55 @@
+.switchWrapper {
+  width: 100%;
+
+  .itemList {
+    margin: 0 15px;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    width: 90%;
+    text-transform: uppercase;
+    li {
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.currentCategory {
+  color: firebrick;
+}
+
+.category {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+@media screen and (max-width: 389px) {
+  .switchWrapper {
+    .itemList {
+      li {
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .switchWrapper {
+    .itemList {
+      li {
+        margin: 0 5px;
+        cursor: pointer;
+        font-size: 17px;
+      }
+    }
+  }
+}

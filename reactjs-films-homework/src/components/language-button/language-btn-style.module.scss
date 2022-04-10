@@ -1,0 +1,44 @@
+@import "src/variables";
+
+.langBtn {
+  cursor: pointer;
+  margin: 0 40px;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 42px;
+  height: 26px;
+  text-align: center;
+  border-radius: 3px;
+  position: relative;
+  top: 4px;
+  background-color: $primary-color;
+  color: $light-color;
+  border: 1px $light-color solid;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.langBtn:focus {
+  background-color: $light-color;
+  color: black;
+}
+
+@media screen and (max-width: 389px) {
+  .langBtn {
+    margin: -3px 10px;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .langBtn {
+    margin: -3px 10px;
+  }
+}
+
+@media (min-width: 715px) and (max-width: 926px) {
+  .langBtn {
+    margin: 0 10px;
+  }
+}

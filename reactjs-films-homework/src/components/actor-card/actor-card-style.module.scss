@@ -1,0 +1,17 @@
+.container {
+  .actorInfo {
+    padding-left: 10px;
+    text-align: center;
+
+    .name {
+      font-size: 16px;
+    }
+  }
+
+  .actorTab {
+    width: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}

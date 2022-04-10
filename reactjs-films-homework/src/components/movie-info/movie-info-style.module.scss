@@ -1,0 +1,68 @@
+.movieInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 15px 15px;
+  height: 484px;
+
+  .movieTitle {
+    font-size: 35px;
+  }
+
+  .movieDescription {
+    font-size: 17px;
+  }
+}
+
+.website {
+  text-decoration: none;
+  color: #66bf3c;
+}
+
+@media screen and (max-width: 389px) {
+  .movieInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 15px 15px;
+    height: 100%;
+    width: 55%;
+
+    .movieTitle {
+      font-size: 14px;
+    }
+
+    .movieDescription {
+      font-size: 10px;
+    }
+  }
+  .website {
+    text-decoration: none;
+    color: #66bf3c;
+    font-size: 7px;
+  }
+}
+
+@media (min-width: 389px) and (max-width: 715px) {
+  .movieInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 15px 15px;
+    height: 100%;
+    width: 50%;
+
+    .movieTitle {
+      font-size: 20px;
+    }
+
+    .movieDescription {
+      font-size: 12px;
+    }
+  }
+  .website {
+    text-decoration: none;
+    color: #66bf3c;
+    font-size: 11px;
+  }
+}
